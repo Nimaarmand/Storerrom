@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Application.Features.Definition.Context;
 using Domain.Entity;
-using Application.Feature.Definition.Context;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace Persistans.Context
 {
