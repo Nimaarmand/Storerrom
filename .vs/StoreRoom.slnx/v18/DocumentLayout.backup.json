@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Files\\Business Project\\StoreRoom\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2168A6AC-0BB2-431F-BADF-F71AC8F2411B}|persistence\\persistence.csproj|d:\\files\\business project\\storeroom\\persistence\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2168A6AC-0BB2-431F-BADF-F71AC8F2411B}|persistence\\persistence.csproj|solutionrelative:persistence\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8018F20-6AA2-4482-A8C9-1EB1055082DD}|StoreRoom\\StoreRoom.csproj|d:\\files\\business project\\storeroom\\storeroom\\forms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D8018F20-6AA2-4482-A8C9-1EB1055082DD}|StoreRoom\\StoreRoom.csproj|solutionrelative:storeroom\\forms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\persistence\\Class1.cs",
+              "RelativeDocumentMoniker": "persistence\\Class1.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\persistence\\Class1.cs",
+              "RelativeToolTip": "persistence\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T13:35:04.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form1.cs",
+              "RelativeDocumentMoniker": "StoreRoom\\Forms\\Form1.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form1.cs [Design]",
+              "RelativeToolTip": "StoreRoom\\Forms\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T13:27:38.016Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
