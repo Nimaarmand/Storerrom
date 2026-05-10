@@ -3,40 +3,16 @@
   "WorkspaceRootPath": "D:\\Files\\Business Project\\StoreRoom\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|d:\\files\\business project\\storeroom\\storeroom\\storeroom.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|solutionrelative:storeroom\\storeroom.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|d:\\files\\business project\\storeroom\\storeroom\\forms\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|solutionrelative:storeroom\\forms\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|d:\\files\\business project\\storeroom\\domain\\entity\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\entity\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|d:\\files\\business project\\storeroom\\storeroom\\forms\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|solutionrelative:storeroom\\forms\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|d:\\files\\business project\\storeroom\\application\\features\\implementation\\goodsissue_service\\goodsissueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\features\\implementation\\goodsissue_service\\goodsissueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|d:\\files\\business project\\storeroom\\application\\features\\implementation\\goodsreceipt_service\\goodsreceiptservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\features\\implementation\\goodsreceipt_service\\goodsreceiptservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|d:\\files\\business project\\storeroom\\application\\features\\implementation\\supplier_service\\supplierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\features\\implementation\\supplier_service\\supplierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|d:\\files\\business project\\storeroom\\application\\features\\implementation\\genericrepository_service\\genericrepositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\features\\implementation\\genericrepository_service\\genericrepositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|d:\\files\\business project\\storeroom\\application\\features\\definition\\genericrepository\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\features\\definition\\genericrepository\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|d:\\files\\business project\\storeroom\\application\\features\\definition\\context\\iapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\features\\definition\\context\\iapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{727CFD8C-23B7-C991-64E7-E71059A345FA}|persistence\\persistence.csproj|d:\\files\\business project\\storeroom\\persistence\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{727CFD8C-23B7-C991-64E7-E71059A345FA}|persistence\\persistence.csproj|solutionrelative:persistence\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|d:\\files\\business project\\storeroom\\storeroom\\forms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|solutionrelative:storeroom\\forms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|D:\\Files\\Business Project\\StoreRoom\\storeroom\\forms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -45,6 +21,30 @@
     {
       "AbsoluteMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|d:\\files\\business project\\storeroom\\storeroom\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|solutionrelative:storeroom\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|d:\\files\\business project\\storeroom\\application\\features\\implementation\\customer_service\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\features\\implementation\\customer_service\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|d:\\files\\business project\\storeroom\\domain\\entity\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\entity\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|d:\\files\\business project\\storeroom\\domain\\entity\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\entity\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|d:\\files\\business project\\storeroom\\storeroom\\forms\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|solutionrelative:storeroom\\forms\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|d:\\files\\business project\\storeroom\\storeroom\\forms\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|solutionrelative:storeroom\\forms\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|d:\\files\\business project\\storeroom\\storeroom\\forms\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B42B62B6-C1FF-E65C-BCE8-95B972E20243}|StoreRoom\\StoreRoom.csproj|solutionrelative:storeroom\\forms\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,136 +62,143 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StoreRoom",
-              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\StoreRoom.csproj",
-              "RelativeDocumentMoniker": "StoreRoom\\StoreRoom.csproj",
-              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\StoreRoom.csproj",
-              "RelativeToolTip": "StoreRoom\\StoreRoom.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-08T17:07:40.069Z",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form1.cs",
+              "RelativeDocumentMoniker": "StoreRoom\\Forms\\Form1.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form1.cs",
+              "RelativeToolTip": "StoreRoom\\Forms\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T09:29:48.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GoodsIssueService.cs",
-              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Implementation\\GoodsIssue_Service\\GoodsIssueService.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Implementation\\GoodsIssue_Service\\GoodsIssueService.cs",
-              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Implementation\\GoodsIssue_Service\\GoodsIssueService.cs",
-              "RelativeToolTip": "Application\\Features\\Implementation\\GoodsIssue_Service\\GoodsIssueService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJsAAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Form4.cs",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form4.cs",
+              "RelativeDocumentMoniker": "StoreRoom\\Forms\\Form4.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form4.cs",
+              "RelativeToolTip": "StoreRoom\\Forms\\Form4.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAAEUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T16:40:05.929Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GoodsReceiptService.cs",
-              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Implementation\\GoodsReceipt_Service\\GoodsReceiptService.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Implementation\\GoodsReceipt_Service\\GoodsReceiptService.cs",
-              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Implementation\\GoodsReceipt_Service\\GoodsReceiptService.cs",
-              "RelativeToolTip": "Application\\Features\\Implementation\\GoodsReceipt_Service\\GoodsReceiptService.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAAI8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T16:29:02.634Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SupplierService.cs",
-              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Implementation\\Supplier_Service\\SupplierService.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Implementation\\Supplier_Service\\SupplierService.cs",
-              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Implementation\\Supplier_Service\\SupplierService.cs",
-              "RelativeToolTip": "Application\\Features\\Implementation\\Supplier_Service\\SupplierService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T16:15:31.324Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GenericRepositoryService.cs",
-              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Implementation\\GenericRepository_Service\\GenericRepositoryService.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Implementation\\GenericRepository_Service\\GenericRepositoryService.cs",
-              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Implementation\\GenericRepository_Service\\GenericRepositoryService.cs",
-              "RelativeToolTip": "Application\\Features\\Implementation\\GenericRepository_Service\\GenericRepositoryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T16:06:39.707Z"
+              "WhenOpened": "2026-05-09T09:16:54.196Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "IGenericRepository.cs",
-              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Definition\\GenericRepository\\IGenericRepository.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Definition\\GenericRepository\\IGenericRepository.cs",
-              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Definition\\GenericRepository\\IGenericRepository.cs",
-              "RelativeToolTip": "Application\\Features\\Definition\\GenericRepository\\IGenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAmAAAAAAAAAA==",
+              "Title": "Customer.cs",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Entity\\Customer.cs",
+              "RelativeDocumentMoniker": "Domain\\Entity\\Customer.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Entity\\Customer.cs",
+              "RelativeToolTip": "Domain\\Entity\\Customer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T16:03:03.278Z"
+              "WhenOpened": "2026-05-09T08:47:16.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CustomerService.cs",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Implementation\\Customer_Service\\CustomerService.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Implementation\\Customer_Service\\CustomerService.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Implementation\\Customer_Service\\CustomerService.cs",
+              "RelativeToolTip": "Application\\Features\\Implementation\\Customer_Service\\CustomerService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T08:42:40.146Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Form4.cs [Design]",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form4.cs",
+              "RelativeDocumentMoniker": "StoreRoom\\Forms\\Form4.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form4.cs [Design]",
+              "RelativeToolTip": "StoreRoom\\Forms\\Form4.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T08:36:29.989Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Entity\\Product.cs",
               "RelativeDocumentMoniker": "Domain\\Entity\\Product.cs",
               "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Entity\\Product.cs",
               "RelativeToolTip": "Domain\\Entity\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T14:40:45.877Z",
+              "WhenOpened": "2026-05-09T08:32:11.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Program.cs",
+              "RelativeDocumentMoniker": "StoreRoom\\Program.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Program.cs",
+              "RelativeToolTip": "StoreRoom\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T08:16:14.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Form3.cs [Design]",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form3.cs",
+              "RelativeDocumentMoniker": "StoreRoom\\Forms\\Form3.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form3.cs [Design]",
+              "RelativeToolTip": "StoreRoom\\Forms\\Form3.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T07:59:58.617Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form1.cs",
               "RelativeDocumentMoniker": "StoreRoom\\Forms\\Form1.cs",
               "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form1.cs [Design]",
               "RelativeToolTip": "StoreRoom\\Forms\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T15:51:23.076Z"
+              "WhenOpened": "2026-05-08T15:51:23.076Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\persistence\\Context\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "persistence\\Context\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\persistence\\Context\\ApplicationDbContext.cs",
-              "RelativeToolTip": "persistence\\Context\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABIAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "Form3.cs",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form3.cs",
+              "RelativeDocumentMoniker": "StoreRoom\\Forms\\Form3.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form3.cs",
+              "RelativeToolTip": "StoreRoom\\Forms\\Form3.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAqwFkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T14:26:10.076Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Definition\\Context\\IApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Definition\\Context\\IApplicationDbContext.cs",
-              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\Application\\Features\\Definition\\Context\\IApplicationDbContext.cs",
-              "RelativeToolTip": "Application\\Features\\Definition\\Context\\IApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T14:25:20.087Z"
+              "WhenOpened": "2026-05-09T08:38:28.702Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Program.cs",
-              "RelativeDocumentMoniker": "StoreRoom\\Program.cs",
-              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Program.cs",
-              "RelativeToolTip": "StoreRoom\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Title": "Form2.cs",
+              "DocumentMoniker": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form2.cs",
+              "RelativeDocumentMoniker": "StoreRoom\\Forms\\Form2.cs",
+              "ToolTip": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\Forms\\Form2.cs",
+              "RelativeToolTip": "StoreRoom\\Forms\\Form2.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T13:42:01.077Z"
+              "WhenOpened": "2026-05-09T06:47:13.726Z",
+              "EditorCaption": ""
             }
           ]
         }

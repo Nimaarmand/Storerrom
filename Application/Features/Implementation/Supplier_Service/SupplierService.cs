@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Implementation.Supplier_Service
 {
-    // ✅ اصلاح: ارث‌بری از GenericRepository<Supplier> (نه GenericRepositoryService)
+   
     public class SupplierService : GenericRepository<Supplier>
     {
         public SupplierService(IApplicationDbContext context) : base(context)

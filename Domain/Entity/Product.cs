@@ -70,23 +70,6 @@ namespace Domain.Entity
         public string Description { get; set; }
     }
 
-    // ============================== Customer ==============================
-    public class Customer
-    {
-        [Key]
-        public int CustomerId { get; set; }
-
-        [Required]
-        [MaxLength(200)]
-        public string Name { get; set; }
-
-        [MaxLength(20)]
-        public string Phone { get; set; }
-
-        [MaxLength(300)]
-        public string Address { get; set; }
-    }
-
     // ============================== User ==============================
     public class User
     {
