@@ -31,6 +31,12 @@ namespace Application.Features.Implementation.Warehouse_Service
         public async Task DeleteAsync(int id)
             => await _warehouseRepo.RemoveByIdAsync(id);
 
+
+        public Task<IEnumerable<Warehouse>> GetTopWarehousesAsync(int count)
+        {
+            return _warehouseRepo.TakeAsync(count);
+        }
+
         // ========== متدهای اختصاصی ==========
         public async Task<Warehouse> GetByNameAsync(string name)
         {

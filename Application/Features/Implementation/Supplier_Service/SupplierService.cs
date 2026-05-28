@@ -15,6 +15,16 @@ namespace Application.Features.Implementation.Supplier_Service
         public SupplierService(IApplicationDbContext context) : base(context)
         {
         }
+        /// <summary>
+        /// دریافت تعداد مشخصی محصول (جدیدترین‌ها بر اساس ProductId)
+        /// </summary>
+        public async Task<IEnumerable<Supplier>> GetTopSuppliersAsync(int count)
+        {
+            return await _dbSet
+                .OrderByDescending(p =>p.SupplierId) 
+                .Take(count)
+                .ToListAsync();
+        }
 
         /// <summary>
         /// دریافت تأمین‌کننده بر اساس نام (جستجوی دقیق)

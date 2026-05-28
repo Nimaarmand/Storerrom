@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Domain.Entity
 {
     // ============================== GoodsIssue ==============================
+    /// <summary>
+    /// کلاس خروج کالا
+    /// </summary>
     public class GoodsIssue
     {
         [Key]
@@ -49,9 +52,9 @@ namespace Domain.Entity
         [Required]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        public int? UserId { get; set; }
+        public string? UserId { get; set; }
         [ForeignKey("UserId")]
-        public virtual User User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         [Required]
         public byte Status { get; set; } = 0;

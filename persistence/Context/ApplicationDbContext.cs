@@ -21,7 +21,7 @@ namespace Persistans.Context
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
-        public DbSet<User> Users { get; set; }
+      
         public DbSet<GoodsReceipt> GoodsReceipts { get; set; }
         public DbSet<GoodsIssue> GoodsIssues { get; set; }
         public DbSet<Category> Categories { get; set; }

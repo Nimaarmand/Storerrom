@@ -23,6 +23,7 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.TargetFrameworkIdentifier = .NETCoreApp
 build_property.TargetFrameworkVersion = v10.0
+build_property.EntryPointFilePath = 
 build_property.RootNamespace = StoreRoom
 build_property.ProjectDir = D:\Files\Business Project\StoreRoom\StoreRoom\
 build_property.EnableComHosting = 

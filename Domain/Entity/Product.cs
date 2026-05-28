@@ -10,12 +10,7 @@ namespace Domain.Entity
     public class Product
     {
         [Key]
-        public Guid ProductId { get; set; } = Guid.NewGuid();
-
-        [Required]
-        [MaxLength(50)]
-        public string Code { get; set; }
-
+        public Guid ProductId { get; set; } = Guid.NewGuid();    
         [Required]
         [MaxLength(200)]
         public string Name { get; set; }
@@ -51,53 +46,6 @@ namespace Domain.Entity
         public int? Number { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
-    }
-    // ============================== Category ==============================
-    public class Category
-    {
-        [Key]
-        public int CategoryId { get; set; }
-
-        [Required]
-        [MaxLength(100)]
-        public string Name { get; set; }
-
-        public int? ParentId { get; set; }
-        [ForeignKey("ParentId")]
-        public virtual Category Parent { get; set; }
-
-        [MaxLength(500)]
-        public string Description { get; set; }
-    }
-
-    // ============================== User ==============================
-    public class User
-    {
-        [Key]
-        public int UserId { get; set; }
-
-        [Required]
-        [MaxLength(100)]
-        public string Username { get; set; }
-
-        [Required]
-        [MaxLength(100)]
-        public string PasswordHash { get; set; }
-
-        [MaxLength(50)]
-        public string FullName { get; set; }
-
-        public bool IsActive { get; set; } = true;
-    }
-
-    // ============================== IssueType Enum ==============================
-    public enum IssueType
-    {
-        Sale = 1,
-        InternalUse = 2,
-        Donation = 3,
-        Scrap = 4,
-        ReturnToSupplier = 5
     }
 }
 

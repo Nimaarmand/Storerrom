@@ -1,4 +1,5 @@
-﻿using Application.Features.Implementation.Customer_Service;
+﻿using Application.Features.Implementation.Category_Service;
+using Application.Features.Implementation.Customer_Service;
 using Domain.Entity;
 using ReaLTaiizor.Forms;
 using System;
@@ -14,12 +15,30 @@ namespace StoreRoom.Forms
     public partial class Form4 : MaterialForm
     {
         private readonly CustomerService _customerService;
-        public Form4(CustomerService customerService)
+        private int _customerId = 0;
+        private Customer _customer;
+        public Form4(CustomerService customerService, int custumerid=0)
         {
             InitializeComponent();
             _customerService = customerService;
+            _customerId = custumerid;
+            if(_customerId!=0)
+            {
+                foreverButton1.Text = "بروزرسانی";
+                LoadCstumerData();
+            }
         }
-
+        private async void LoadCstumerData()
+        {
+            _customer = await _customerService.GetByIdAsync(_customerId);
+            if (_customer != null)
+            {
+                textBoxEdit1.Text = _customer.Name;
+                textBoxEdit2.Text = _customer.Address;
+                textBoxEdit2.Text = _customer.Phone;
+                textBoxEdit2.Text = _customer.MarketName;
+            }
+        }
         private void Clear()
         {
             textBoxEdit1.Text = "";

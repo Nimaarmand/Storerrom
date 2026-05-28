@@ -29,20 +29,28 @@
         private void InitializeComponent()
         {
             panel2 = new ReaLTaiizor.Controls.Panel();
+            hopeButton9 = new ReaLTaiizor.Controls.HopeButton();
+            hopeButton10 = new ReaLTaiizor.Controls.HopeButton();
+            hopeButton7 = new ReaLTaiizor.Controls.HopeButton();
+            hopeButton8 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton6 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton5 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton4 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton3 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton2 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton1 = new ReaLTaiizor.Controls.HopeButton();
-            hopeButton7 = new ReaLTaiizor.Controls.HopeButton();
-            hopeButton8 = new ReaLTaiizor.Controls.HopeButton();
+            hopeButton11 = new ReaLTaiizor.Controls.HopeButton();
+            hopeButton12 = new ReaLTaiizor.Controls.HopeButton();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(39, 51, 63);
+            panel2.Controls.Add(hopeButton11);
+            panel2.Controls.Add(hopeButton12);
+            panel2.Controls.Add(hopeButton9);
+            panel2.Controls.Add(hopeButton10);
             panel2.Controls.Add(hopeButton7);
             panel2.Controls.Add(hopeButton8);
             panel2.Controls.Add(hopeButton6);
@@ -60,6 +68,90 @@
             panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             panel2.TabIndex = 1;
             panel2.Text = "panel2";
+            // 
+            // hopeButton9
+            // 
+            hopeButton9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            hopeButton9.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton9.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton9.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton9.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton9.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            hopeButton9.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton9.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton9.Location = new Point(0, 423);
+            hopeButton9.Name = "hopeButton9";
+            hopeButton9.PrimaryColor = Color.FromArgb(64, 158, 255);
+            hopeButton9.Size = new Size(173, 79);
+            hopeButton9.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton9.TabIndex = 10;
+            hopeButton9.Text = "لیست دسته بندی";
+            hopeButton9.TextColor = Color.White;
+            hopeButton9.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton9.Click += hopeButton9_Click;
+            // 
+            // hopeButton10
+            // 
+            hopeButton10.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            hopeButton10.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton10.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton10.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton10.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton10.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            hopeButton10.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton10.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton10.Location = new Point(195, 423);
+            hopeButton10.Name = "hopeButton10";
+            hopeButton10.PrimaryColor = Color.FromArgb(64, 158, 255);
+            hopeButton10.Size = new Size(169, 79);
+            hopeButton10.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton10.TabIndex = 9;
+            hopeButton10.Text = "ثبت دسته بندی";
+            hopeButton10.TextColor = Color.White;
+            hopeButton10.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton10.Click += hopeButton10_Click;
+            // 
+            // hopeButton7
+            // 
+            hopeButton7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            hopeButton7.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton7.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton7.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton7.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton7.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            hopeButton7.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton7.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton7.Location = new Point(0, 318);
+            hopeButton7.Name = "hopeButton7";
+            hopeButton7.PrimaryColor = Color.FromArgb(64, 158, 255);
+            hopeButton7.Size = new Size(173, 79);
+            hopeButton7.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton7.TabIndex = 8;
+            hopeButton7.Text = "لیست مشتری";
+            hopeButton7.TextColor = Color.White;
+            hopeButton7.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton7.Click += hopeButton7_Click;
+            // 
+            // hopeButton8
+            // 
+            hopeButton8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            hopeButton8.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton8.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton8.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton8.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton8.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            hopeButton8.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton8.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton8.Location = new Point(195, 318);
+            hopeButton8.Name = "hopeButton8";
+            hopeButton8.PrimaryColor = Color.FromArgb(64, 158, 255);
+            hopeButton8.Size = new Size(169, 79);
+            hopeButton8.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton8.TabIndex = 7;
+            hopeButton8.Text = "ثبت مشتری ";
+            hopeButton8.TextColor = Color.White;
+            hopeButton8.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton8.Click += hopeButton8_Click;
             // 
             // hopeButton6
             // 
@@ -80,6 +172,7 @@
             hopeButton6.Text = "لیست تامین کننده";
             hopeButton6.TextColor = Color.White;
             hopeButton6.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton6.Click += hopeButton6_Click;
             // 
             // hopeButton5
             // 
@@ -91,10 +184,10 @@
             hopeButton5.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton5.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton5.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton5.Location = new Point(201, 216);
+            hopeButton5.Location = new Point(195, 216);
             hopeButton5.Name = "hopeButton5";
             hopeButton5.PrimaryColor = Color.FromArgb(64, 158, 255);
-            hopeButton5.Size = new Size(163, 79);
+            hopeButton5.Size = new Size(169, 79);
             hopeButton5.SuccessColor = Color.FromArgb(103, 194, 58);
             hopeButton5.TabIndex = 5;
             hopeButton5.Text = "ثبت تامین کننده";
@@ -121,6 +214,7 @@
             hopeButton4.Text = "لیست کالا";
             hopeButton4.TextColor = Color.White;
             hopeButton4.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton4.Click += hopeButton4_Click;
             // 
             // hopeButton3
             // 
@@ -132,15 +226,16 @@
             hopeButton3.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton3.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton3.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton3.Location = new Point(201, 109);
+            hopeButton3.Location = new Point(195, 109);
             hopeButton3.Name = "hopeButton3";
             hopeButton3.PrimaryColor = Color.FromArgb(64, 158, 255);
-            hopeButton3.Size = new Size(163, 79);
+            hopeButton3.Size = new Size(169, 79);
             hopeButton3.SuccessColor = Color.FromArgb(103, 194, 58);
             hopeButton3.TabIndex = 3;
             hopeButton3.Text = "ثبت کالا";
             hopeButton3.TextColor = Color.White;
             hopeButton3.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton3.Click += hopeButton3_Click;
             // 
             // hopeButton2
             // 
@@ -161,6 +256,7 @@
             hopeButton2.Text = "لیست انبار";
             hopeButton2.TextColor = Color.White;
             hopeButton2.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton2.Click += hopeButton2_Click;
             // 
             // hopeButton1
             // 
@@ -172,10 +268,10 @@
             hopeButton1.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton1.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton1.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton1.Location = new Point(201, 0);
+            hopeButton1.Location = new Point(195, 0);
             hopeButton1.Name = "hopeButton1";
             hopeButton1.PrimaryColor = Color.FromArgb(64, 158, 255);
-            hopeButton1.Size = new Size(163, 79);
+            hopeButton1.Size = new Size(169, 79);
             hopeButton1.SuccessColor = Color.FromArgb(103, 194, 58);
             hopeButton1.TabIndex = 2;
             hopeButton1.Text = "ثبت انبار";
@@ -183,46 +279,45 @@
             hopeButton1.WarningColor = Color.FromArgb(230, 162, 60);
             hopeButton1.Click += hopeButton1_Click;
             // 
-            // hopeButton7
+            // hopeButton11
             // 
-            hopeButton7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            hopeButton7.BorderColor = Color.FromArgb(220, 223, 230);
-            hopeButton7.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            hopeButton7.DangerColor = Color.FromArgb(245, 108, 108);
-            hopeButton7.DefaultColor = Color.FromArgb(255, 255, 255);
-            hopeButton7.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            hopeButton7.HoverTextColor = Color.FromArgb(48, 49, 51);
-            hopeButton7.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton7.Location = new Point(0, 318);
-            hopeButton7.Name = "hopeButton7";
-            hopeButton7.PrimaryColor = Color.FromArgb(64, 158, 255);
-            hopeButton7.Size = new Size(173, 79);
-            hopeButton7.SuccessColor = Color.FromArgb(103, 194, 58);
-            hopeButton7.TabIndex = 8;
-            hopeButton7.Text = "لیست مشتری";
-            hopeButton7.TextColor = Color.White;
-            hopeButton7.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            hopeButton11.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton11.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton11.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton11.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton11.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            hopeButton11.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton11.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton11.Location = new Point(0, 529);
+            hopeButton11.Name = "hopeButton11";
+            hopeButton11.PrimaryColor = Color.FromArgb(64, 158, 255);
+            hopeButton11.Size = new Size(173, 79);
+            hopeButton11.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton11.TabIndex = 12;
+            hopeButton11.Text = "لیست خروجی";
+            hopeButton11.TextColor = Color.White;
+            hopeButton11.WarningColor = Color.FromArgb(230, 162, 60);
             // 
-            // hopeButton8
+            // hopeButton12
             // 
-            hopeButton8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            hopeButton8.BorderColor = Color.FromArgb(220, 223, 230);
-            hopeButton8.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            hopeButton8.DangerColor = Color.FromArgb(245, 108, 108);
-            hopeButton8.DefaultColor = Color.FromArgb(255, 255, 255);
-            hopeButton8.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            hopeButton8.HoverTextColor = Color.FromArgb(48, 49, 51);
-            hopeButton8.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton8.Location = new Point(201, 318);
-            hopeButton8.Name = "hopeButton8";
-            hopeButton8.PrimaryColor = Color.FromArgb(64, 158, 255);
-            hopeButton8.Size = new Size(163, 79);
-            hopeButton8.SuccessColor = Color.FromArgb(103, 194, 58);
-            hopeButton8.TabIndex = 7;
-            hopeButton8.Text = "ثبت مشتری ";
-            hopeButton8.TextColor = Color.White;
-            hopeButton8.WarningColor = Color.FromArgb(230, 162, 60);
-            hopeButton8.Click += hopeButton8_Click;
+            hopeButton12.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            hopeButton12.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton12.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton12.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton12.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton12.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            hopeButton12.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton12.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton12.Location = new Point(195, 529);
+            hopeButton12.Name = "hopeButton12";
+            hopeButton12.PrimaryColor = Color.FromArgb(64, 158, 255);
+            hopeButton12.Size = new Size(169, 79);
+            hopeButton12.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton12.TabIndex = 11;
+            hopeButton12.Text = "لیست ورودی";
+            hopeButton12.TextColor = Color.White;
+            hopeButton12.WarningColor = Color.FromArgb(230, 162, 60);
             // 
             // Form1
             // 
@@ -252,5 +347,9 @@
         private ReaLTaiizor.Controls.HopeButton hopeButton5;
         private ReaLTaiizor.Controls.HopeButton hopeButton7;
         private ReaLTaiizor.Controls.HopeButton hopeButton8;
+        private ReaLTaiizor.Controls.HopeButton hopeButton9;
+        private ReaLTaiizor.Controls.HopeButton hopeButton10;
+        private ReaLTaiizor.Controls.HopeButton hopeButton11;
+        private ReaLTaiizor.Controls.HopeButton hopeButton12;
     }
 }

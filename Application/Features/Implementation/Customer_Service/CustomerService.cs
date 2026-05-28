@@ -19,6 +19,13 @@ namespace Application.Features.Implementation.Customer_Service
         {
         }
 
+        public async Task<IEnumerable<Customer>> GetTopSuppliersAsync(int count)
+        {
+            return await _dbSet
+                .OrderByDescending(p => p.CustomerId)
+                .Take(count)
+                .ToListAsync();
+        }
         // جستجو بر اساس نام (تطبیق جزئی)
         public async Task<IEnumerable<Customer>> SearchByNameAsync(string name)
         {
