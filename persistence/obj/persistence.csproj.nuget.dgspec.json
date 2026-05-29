@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Files\\Business Project\\StoreRoom\\persistence\\persistence.csproj": {}
+    "D:\\Files\\Business Project\\Storeroom\\persistence\\persistence.csproj": {}
   },
   "projects": {
-    "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj": {
+    "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj",
+        "projectPath": "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-        "outputPath": "D:\\Files\\Business Project\\StoreRoom\\Application\\obj\\",
+        "outputPath": "D:\\Files\\Business Project\\Storeroom\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
@@ -37,8 +37,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj"
+              "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj"
               }
             }
           }
@@ -359,12 +359,12 @@
         }
       }
     },
-    "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj": {
+    "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj",
+        "projectPath": "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
         "outputPath": "D:\\Files\\Business Project\\Storeroom\\Domain\\obj\\",
         "projectStyle": "PackageReference",
@@ -710,14 +710,14 @@
         }
       }
     },
-    "D:\\Files\\Business Project\\StoreRoom\\persistence\\persistence.csproj": {
+    "D:\\Files\\Business Project\\Storeroom\\persistence\\persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Files\\Business Project\\StoreRoom\\persistence\\persistence.csproj",
+        "projectUniqueName": "D:\\Files\\Business Project\\Storeroom\\persistence\\persistence.csproj",
         "projectName": "persistence",
-        "projectPath": "D:\\Files\\Business Project\\StoreRoom\\persistence\\persistence.csproj",
+        "projectPath": "D:\\Files\\Business Project\\Storeroom\\persistence\\persistence.csproj",
         "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-        "outputPath": "D:\\Files\\Business Project\\StoreRoom\\persistence\\obj\\",
+        "outputPath": "D:\\Files\\Business Project\\Storeroom\\persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
@@ -743,11 +743,11 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj": {
-                "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj"
+              "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj": {
+                "projectPath": "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj"
               },
-              "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj"
+              "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj"
               }
             }
           }

@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Files\\Business Project\\StoreRoom\\Infrastructure\\Infrastructure.csproj": {}
+    "D:\\Files\\Business Project\\Storeroom\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\Files\\Business Project\\StoreRoom\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\Files\\Business Project\\Storeroom\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Files\\Business Project\\StoreRoom\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\Files\\Business Project\\Storeroom\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "D:\\Files\\Business Project\\Storeroom\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
         "outputPath": "D:\\Files\\Business Project\\Storeroom\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",

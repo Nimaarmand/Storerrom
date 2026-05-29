@@ -4147,9 +4147,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Files\\Business Project\\StoreRoom\\persistence\\persistence.csproj",
+      "projectUniqueName": "D:\\Files\\Business Project\\Storeroom\\persistence\\persistence.csproj",
       "projectName": "persistence",
-      "projectPath": "D:\\Files\\Business Project\\StoreRoom\\persistence\\persistence.csproj",
+      "projectPath": "D:\\Files\\Business Project\\Storeroom\\persistence\\persistence.csproj",
       "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
       "outputPath": "D:\\Files\\Business Project\\StoreRoom\\persistence\\obj\\",
       "projectStyle": "PackageReference",
@@ -4177,11 +4177,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj": {
-              "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj"
+            "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj": {
+              "projectPath": "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj"
             },
-            "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj"
+            "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj"
             }
           }
         }

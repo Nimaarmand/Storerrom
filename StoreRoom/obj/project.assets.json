@@ -4589,11 +4589,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\StoreRoom.csproj",
+      "projectUniqueName": "D:\\Files\\Business Project\\Storeroom\\StoreRoom\\StoreRoom.csproj",
       "projectName": "StoreRoom",
-      "projectPath": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\StoreRoom.csproj",
+      "projectPath": "D:\\Files\\Business Project\\Storeroom\\StoreRoom\\StoreRoom.csproj",
       "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-      "outputPath": "D:\\Files\\Business Project\\Storeroom\\StoreRoom\\obj\\",
+      "outputPath": "D:\\Files\\Business Project\\StoreRoom\\StoreRoom\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
@@ -4619,11 +4619,11 @@
           "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
           "projectReferences": {
-            "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj": {
-              "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj"
+            "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj": {
+              "projectPath": "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj"
             },
-            "D:\\Files\\Business Project\\StoreRoom\\persistence\\persistence.csproj": {
-              "projectPath": "D:\\Files\\Business Project\\StoreRoom\\persistence\\persistence.csproj"
+            "D:\\Files\\Business Project\\Storeroom\\persistence\\persistence.csproj": {
+              "projectPath": "D:\\Files\\Business Project\\Storeroom\\persistence\\persistence.csproj"
             }
           }
         }

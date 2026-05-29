@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StoreRoom")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1be8e4d1b2af8f995555b85029e0b1753573557c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8e1be2ae820838dd9325793cff60da66d8057cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("StoreRoom")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StoreRoom")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

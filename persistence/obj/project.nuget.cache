@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XQoE4d2DqOY=",
+  "dgSpecHash": "3affHafVSdI=",
   "success": true,
-  "projectFilePath": "D:\\Files\\Business Project\\StoreRoom\\persistence\\persistence.csproj",
+  "projectFilePath": "D:\\Files\\Business Project\\Storeroom\\persistence\\persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\asus\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

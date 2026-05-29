@@ -1020,11 +1020,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Application\\Application.csproj",
+      "projectPath": "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-      "outputPath": "D:\\Files\\Business Project\\Storeroom\\Application\\obj\\",
+      "outputPath": "D:\\Files\\Business Project\\StoreRoom\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
@@ -1050,8 +1050,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj"
+            "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj"
             }
           }
         }
@@ -1371,5 +1371,19 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    },
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://irannuget.ir/v3/index.json."
+    }
+  ]
 }

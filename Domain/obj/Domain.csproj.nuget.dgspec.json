@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj": {}
+    "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj": {
+    "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Files\\Business Project\\StoreRoom\\Domain\\Domain.csproj",
+        "projectPath": "D:\\Files\\Business Project\\Storeroom\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
         "outputPath": "D:\\Files\\Business Project\\Storeroom\\Domain\\obj\\",
         "projectStyle": "PackageReference",
