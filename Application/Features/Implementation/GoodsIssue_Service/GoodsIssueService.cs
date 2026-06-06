@@ -105,7 +105,7 @@ namespace Application.Features.Implementation.GoodsIssue_Service
                 .Include(i => i.Product)
                 .Include(i => i.Customer)
                 .Include(i => i.Warehouse)
-                .Include(i => i.User)
+                
                 .FirstOrDefaultAsync(i => i.IssueId == issueId);
         }
 

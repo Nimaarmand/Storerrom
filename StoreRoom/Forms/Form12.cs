@@ -119,7 +119,7 @@ namespace StoreRoom.Forms
                 ReceiptDate = DateTime.Today,
                 CreatedAt = DateTime.Now,
                 Status = 0,
-                // UserId = Program.CurrentUserId // در صورت وجود کاربر جاری
+                UserId = Program.CurrentUserId 
             };
 
             try

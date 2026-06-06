@@ -1024,7 +1024,7 @@
       "projectName": "Application",
       "projectPath": "D:\\Files\\Business Project\\Storeroom\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-      "outputPath": "D:\\Files\\Business Project\\StoreRoom\\Application\\obj\\",
+      "outputPath": "D:\\Files\\Business Project\\Storeroom\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
@@ -1371,19 +1371,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    },
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://irannuget.ir/v3/index.json."
-    }
-  ]
+  }
 }

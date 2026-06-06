@@ -93,7 +93,7 @@ namespace Application.Features.Implementation.GoodsReceipt_Service
                 .Include(r => r.Product)
                 .Include(r => r.Supplier)
                 .Include(r => r.Warehouse)
-                .Include(r => r.User)
+                
                 .FirstOrDefaultAsync(r => r.ReceiptId == receiptId);
         }
 

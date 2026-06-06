@@ -257,7 +257,7 @@
             Name = "Form2";
             Padding = new Padding(3, 64, 4, 4);
             RightToLeft = RightToLeft.Yes;
-            Text = "ثبت کالا";
+            Text = "ثبت انبار";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

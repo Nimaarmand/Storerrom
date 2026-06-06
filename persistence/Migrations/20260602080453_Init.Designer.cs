@@ -5,14 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using persistence.Context;
 
 #nullable disable
 
-namespace persistence.Migrations.Identity
+namespace persistence.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20260528152958_Init")]
+    [Migration("20260602080453_Init")]
     partial class Init
     {
         /// <inheritdoc />

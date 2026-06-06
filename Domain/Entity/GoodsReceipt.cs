@@ -59,7 +59,7 @@ namespace Domain.Entity
 
         public string? UserId { get; set; } // شناسه کاربر ثبت‌کننده
         [ForeignKey("UserId")]
-        public virtual ApplicationUser User { get; set; } // شیء کاربر مرتبط
+       
 
         [Required]
         public byte Status { get; set; } = 0; // وضعیت ورودی (مثلاً ۰ = در انتظار تأیید، ۱ = تأیید شده)

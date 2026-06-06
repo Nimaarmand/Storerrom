@@ -73,5 +73,23 @@ namespace StoreRoom
             form11.ShowDialog();
 
         }
+
+        private void hopeButton14_Click(object sender, EventArgs e)
+        {
+            var form13 = Program.ServiceProvider.GetRequiredService<Form13>();
+            form13.ShowDialog();
+        }
+
+        private void hopeButton13_Click(object sender, EventArgs e)
+        {
+            var form17 = Program.ServiceProvider.GetRequiredService<Form17>();
+            form17.ShowDialog();
+        }
+
+        private void hopeButton15_Click(object sender, EventArgs e)
+        {
+            var form14 = Program.ServiceProvider.GetRequiredService<Form14>();
+            form14.ShowDialog();
+        }
     }
 }

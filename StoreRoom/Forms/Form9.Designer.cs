@@ -51,7 +51,6 @@
             // 
             flowLayoutPanel1.Controls.Add(foxButton1);
             flowLayoutPanel1.Controls.Add(dungeonNumeric1);
-            flowLayoutPanel1.Dock = DockStyle.Bottom;
             flowLayoutPanel1.Location = new Point(3, 628);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1136, 60);
@@ -104,7 +103,7 @@
             // 
             panel1.Controls.Add(poisonDataGridView1);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(3, 272);
+            panel1.Location = new Point(3, 332);
             panel1.Name = "panel1";
             panel1.Size = new Size(1136, 356);
             panel1.TabIndex = 1;
@@ -159,22 +158,23 @@
             // 
             // poisonContextMenuStrip1
             // 
+            poisonContextMenuStrip1.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             poisonContextMenuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2 });
             poisonContextMenuStrip1.Name = "poisonContextMenuStrip1";
             poisonContextMenuStrip1.RightToLeft = RightToLeft.Yes;
-            poisonContextMenuStrip1.Size = new Size(111, 48);
+            poisonContextMenuStrip1.Size = new Size(132, 52);
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(110, 22);
+            toolStripMenuItem1.Size = new Size(131, 24);
             toolStripMenuItem1.Text = "ویرایش";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(110, 22);
+            toolStripMenuItem2.Size = new Size(131, 24);
             toolStripMenuItem2.Text = "حذف";
             // 
             // textBoxEdit1

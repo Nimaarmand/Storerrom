@@ -1,3 +1,4 @@
+using Application.Features.Definition.Context;
 using Application.Features.Definition.GenericRepository;
 using Application.Features.Implementation.Category_Service;
 using Application.Features.Implementation.Customer_Service;
@@ -6,15 +7,17 @@ using Application.Features.Implementation.GoodsIssue_Service;
 using Application.Features.Implementation.GoodsReceipt_Service;
 using Application.Features.Implementation.Product_Service;
 using Application.Features.Implementation.Supplier_Service;
+using Application.Features.Implementation.Usermanagement_Service;
 using Application.Features.Implementation.Warehouse_Service;
 using Domain.Entity;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Persistans.Context;
-using persistence.Context;
 using StoreRoom.Forms;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace StoreRoom
@@ -22,6 +25,7 @@ namespace StoreRoom
     internal static class Program
     {
         public static IServiceProvider ServiceProvider { get; private set; }
+        public static string CurrentUserId { get; set; }
 
         [STAThread]
         static void Main()
@@ -30,23 +34,29 @@ namespace StoreRoom
 
             var services = new ServiceCollection();
 
-            // 1. ثبت DbContextهای برنامه
+            string connectionString = "Server=.;Database=StoreroomDB;Trusted_Connection=True;TrustServerCertificate=True;";
+
+            // 1. DbContextها
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer("Server=.;Database=StoreroomDB;Trusted_Connection=True;TrustServerCertificate=True;"));
+                options.UseSqlServer(connectionString));
 
             services.AddDbContext<IdentityContext>(options =>
-                options.UseSqlServer("Server=.;Database=StoreroomDB;Trusted_Connection=True;TrustServerCertificate=True;"));
+                options.UseSqlServer(connectionString));
 
-            // 2. ثبت Identity با AddIdentityCore (نیاز به پکیج Microsoft.AspNetCore.Identity ندارد)
-            services.AddIdentityCore<IdentityUser>()
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+
+            // 2. Identity (UserManager, RoleManager به صورت Scoped)
+            services.AddIdentityCore<ApplicationUser>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<IdentityContext>()
                 .AddDefaultTokenProviders();
 
-            // 3. همچنین باید SignInManager را به صورت دستی اضافه کنیم
-            services.AddScoped<SignInManager<IdentityUser>>();
+            // 3. Data Protection
+            services.AddDataProtection()
+                .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "StoreroomKeys")))
+                .SetApplicationName("StoreroomApp");
 
-            // 4. تنظیمات اختیاری Password
+            // 4. تنظیمات رمز عبور
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;
@@ -54,9 +64,10 @@ namespace StoreRoom
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
+                options.User.RequireUniqueEmail = false;
             });
 
-            // 5. ثبت سرویس‌های سفارشی
+            // 5. سرویس‌های سفارشی
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<WarehouseService>();
             services.AddScoped<SupplierService>();
@@ -65,26 +76,19 @@ namespace StoreRoom
             services.AddScoped<CustomerService>();
             services.AddScoped<ProductService>();
             services.AddScoped<CategoryService>();
+            services.AddScoped<UsermanagementService>();
 
-            // 6. ساخت ServiceProvider
-            ServiceProvider = services.BuildServiceProvider();
-
-            // 7. اجرای فرم اصلی (حتماً Form1 باید در DI ثبت شده باشد)
-            var mainForm = ServiceProvider.GetRequiredService<Form1>();
-            System.Windows.Forms.Application.Run(mainForm);
-            // ... بعد از ثبت سرویس‌ها، قبل از BuildServiceProvider
+            // 6. ثبت فرم‌ها به صورت Transient
             services.AddTransient<Form1>();
             services.AddTransient<Form2>();
-            services.AddTransient<Form3>();
-            services.AddTransient<Form4>();
-            services.AddTransient<Form5>();
-            services.AddTransient<Form6>();
-            services.AddTransient<Form7>();
-            services.AddTransient<Form8>();
-            services.AddTransient<Form9>();
-            services.AddTransient<Form10>();
-            services.AddTransient<Form11>();
-            services.AddTransient<Form12>();
+            // ... سایر فرم‌ها
+            services.AddTransient<Form17>();
+            services.AddTransient<Form18>();
+
+            ServiceProvider = services.BuildServiceProvider();
+
+            var mainForm = ServiceProvider.GetRequiredService<Form1>();
+           System.Windows.Forms.Application.Run(mainForm);
         }
     }
 }
