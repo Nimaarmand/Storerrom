@@ -99,7 +99,6 @@
             comboBoxEdit3.HoverSelectionColor = Color.FromArgb(241, 241, 241);
             comboBoxEdit3.IntegralHeight = false;
             comboBoxEdit3.ItemHeight = 20;
-            comboBoxEdit3.Items.AddRange(new object[] { "گرم ", "کیلوگرم", "تُن", "عددی", "بسته ای", "متری" });
             comboBoxEdit3.Location = new Point(557, 427);
             comboBoxEdit3.Name = "comboBoxEdit3";
             comboBoxEdit3.Size = new Size(261, 26);
@@ -174,7 +173,6 @@
             comboBoxEdit2.HoverSelectionColor = Color.FromArgb(241, 241, 241);
             comboBoxEdit2.IntegralHeight = false;
             comboBoxEdit2.ItemHeight = 20;
-            comboBoxEdit2.Items.AddRange(new object[] { "گرم ", "کیلوگرم", "تُن", "عددی", "بسته ای", "متری" });
             comboBoxEdit2.Location = new Point(40, 363);
             comboBoxEdit2.Name = "comboBoxEdit2";
             comboBoxEdit2.Size = new Size(261, 26);
@@ -410,6 +408,7 @@
             Padding = new Padding(3, 64, 4, 4);
             RightToLeft = RightToLeft.Yes;
             Text = "ثبت ورود کالا";
+            Load += Form12_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

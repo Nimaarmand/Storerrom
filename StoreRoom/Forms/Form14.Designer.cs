@@ -33,6 +33,8 @@
             label1 = new Label();
             textBoxEdit1 = new ReaLTaiizor.Controls.TextBoxEdit();
             foreverButton1 = new ReaLTaiizor.Controls.ForeverButton();
+            materialCheckBox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
+            foreverButton2 = new ReaLTaiizor.Controls.ForeverButton();
             SuspendLayout();
             // 
             // label3
@@ -54,14 +56,14 @@
             textBoxEdit2.ForeColor = Color.White;
             textBoxEdit2.Image = null;
             textBoxEdit2.Location = new Point(38, 172);
-            textBoxEdit2.Margin = new Padding(4, 4, 4, 4);
+            textBoxEdit2.Margin = new Padding(4);
             textBoxEdit2.MaxLength = 32767;
             textBoxEdit2.Multiline = false;
             textBoxEdit2.Name = "textBoxEdit2";
             textBoxEdit2.ReadOnly = false;
             textBoxEdit2.RightToLeft = RightToLeft.Yes;
             textBoxEdit2.Size = new Size(373, 43);
-            textBoxEdit2.TabIndex = 21;
+            textBoxEdit2.TabIndex = 1;
             textBoxEdit2.TextAlignment = HorizontalAlignment.Left;
             textBoxEdit2.UseSystemPasswordChar = false;
             // 
@@ -84,13 +86,13 @@
             textBoxEdit1.ForeColor = Color.White;
             textBoxEdit1.Image = null;
             textBoxEdit1.Location = new Point(38, 78);
-            textBoxEdit1.Margin = new Padding(4, 4, 4, 4);
+            textBoxEdit1.Margin = new Padding(4);
             textBoxEdit1.MaxLength = 32767;
             textBoxEdit1.Multiline = false;
             textBoxEdit1.Name = "textBoxEdit1";
             textBoxEdit1.ReadOnly = false;
             textBoxEdit1.Size = new Size(373, 43);
-            textBoxEdit1.TabIndex = 23;
+            textBoxEdit1.TabIndex = 0;
             textBoxEdit1.TextAlignment = HorizontalAlignment.Left;
             textBoxEdit1.UseSystemPasswordChar = false;
             // 
@@ -100,8 +102,8 @@
             foreverButton1.BackColor = Color.Transparent;
             foreverButton1.BaseColor = Color.FromArgb(35, 168, 109);
             foreverButton1.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            foreverButton1.Location = new Point(102, 258);
-            foreverButton1.Margin = new Padding(4, 4, 4, 4);
+            foreverButton1.Location = new Point(115, 243);
+            foreverButton1.Margin = new Padding(4);
             foreverButton1.Name = "foreverButton1";
             foreverButton1.Rounded = false;
             foreverButton1.Size = new Size(208, 71);
@@ -110,22 +112,60 @@
             foreverButton1.TextColor = Color.FromArgb(243, 243, 243);
             foreverButton1.Click += foreverButton1_Click;
             // 
+            // materialCheckBox1
+            // 
+            materialCheckBox1.AutoSize = true;
+            materialCheckBox1.Depth = 0;
+            materialCheckBox1.Location = new Point(419, 231);
+            materialCheckBox1.Margin = new Padding(0);
+            materialCheckBox1.MouseLocation = new Point(-1, -1);
+            materialCheckBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialCheckBox1.Name = "materialCheckBox1";
+            materialCheckBox1.ReadOnly = false;
+            materialCheckBox1.RightToLeft = RightToLeft.Yes;
+            materialCheckBox1.Ripple = true;
+            materialCheckBox1.Size = new Size(79, 37);
+            materialCheckBox1.TabIndex = 39;
+            materialCheckBox1.Text = "نمایش رمز";
+            materialCheckBox1.UseAccentColor = false;
+            materialCheckBox1.UseVisualStyleBackColor = true;
+            materialCheckBox1.CheckedChanged += materialCheckBox1_CheckedChanged;
+            // 
+            // foreverButton2
+            // 
+            foreverButton2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            foreverButton2.BackColor = Color.Transparent;
+            foreverButton2.BaseColor = Color.White;
+            foreverButton2.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            foreverButton2.Location = new Point(115, 333);
+            foreverButton2.Margin = new Padding(4);
+            foreverButton2.Name = "foreverButton2";
+            foreverButton2.Rounded = false;
+            foreverButton2.Size = new Size(208, 71);
+            foreverButton2.TabIndex = 40;
+            foreverButton2.Text = "بازیابی رمز عبور";
+            foreverButton2.TextColor = Color.Red;
+            foreverButton2.Click += foreverButton2_Click;
+            // 
             // Form14
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(554, 346);
+            ClientSize = new Size(554, 430);
+            Controls.Add(foreverButton2);
+            Controls.Add(materialCheckBox1);
             Controls.Add(foreverButton1);
             Controls.Add(label1);
             Controls.Add(textBoxEdit1);
             Controls.Add(label3);
             Controls.Add(textBoxEdit2);
             Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Form14";
             Padding = new Padding(3, 64, 4, 4);
             RightToLeft = RightToLeft.Yes;
             Text = "ورود";
+            Load += Form14_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -137,5 +177,7 @@
         private Label label1;
         private ReaLTaiizor.Controls.TextBoxEdit textBoxEdit1;
         private ReaLTaiizor.Controls.ForeverButton foreverButton1;
+        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox1;
+        private ReaLTaiizor.Controls.ForeverButton foreverButton2;
     }
 }

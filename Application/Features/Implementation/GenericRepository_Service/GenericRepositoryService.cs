@@ -1,10 +1,12 @@
 ﻿using Application.Features.Definition.Context;
 using Application.Features.Definition.GenericRepository;
+using Application.Features.Implementation.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace Application.Features.Implementation.GenericRepository_Service
 {
@@ -21,87 +23,161 @@ namespace Application.Features.Implementation.GenericRepository_Service
 
         public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await _dbSet.ToListAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet.ToListAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public virtual async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
         {
-            return await _dbSet.Where(predicate).ToListAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet.Where(predicate).ToListAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public virtual async Task<T> GetByIdAsync(params object[] keyValues)
         {
-            return await _dbSet.FindAsync(keyValues);
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet.FindAsync(keyValues);
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
-        /// <summary>
-        /// دریافت تعداد مشخصی رکورد از ابتدا (مثل TOP N)
-        /// </summary>
         public virtual async Task<IEnumerable<T>> TakeAsync(int count)
         {
-            return await _dbSet.Take(count).ToListAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet.Take(count).ToListAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
-        /// <summary>
-        /// دریافت تعداد مشخصی رکورد با رد شدن از تعدادی رکورد (برای صفحه‌بندی)
-        /// </summary>
         public virtual async Task<IEnumerable<T>> TakeAsync(int skip, int take)
         {
-            return await _dbSet.Skip(skip).Take(take).ToListAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet.Skip(skip).Take(take).ToListAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public virtual async Task<T> AddAsync(T entity)
         {
-            if (entity == null)
-                throw new ArgumentNullException(nameof(entity));
-
-            await _dbSet.AddAsync(entity);
-            await SaveChangesAsync();
-            return entity;
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                await _dbSet.AddAsync(entity);
+                await _context.SaveChangesAsync();
+                return entity;
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public virtual async Task AddRangeAsync(IEnumerable<T> entities)
         {
-            if (entities == null)
-                throw new ArgumentNullException(nameof(entities));
-
-            await _dbSet.AddRangeAsync(entities);
-            await SaveChangesAsync();
+            if (entities == null) throw new ArgumentNullException(nameof(entities));
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                await _dbSet.AddRangeAsync(entities);
+                await _context.SaveChangesAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public virtual async Task<T> UpdateAsync(T entity)
         {
-            if (entity == null)
-                throw new ArgumentNullException(nameof(entity));
-
-            _dbSet.Update(entity);
-            await SaveChangesAsync();
-            return entity;
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                _dbSet.Update(entity);
+                await _context.SaveChangesAsync();
+                return entity;
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public virtual async Task<T> RemoveAsync(T entity)
         {
-            if (entity == null)
-                throw new ArgumentNullException(nameof(entity));
-
-            _dbSet.Remove(entity);
-            await SaveChangesAsync();
-            return entity;
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                _dbSet.Remove(entity);
+                await _context.SaveChangesAsync();
+                return entity;
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public virtual async Task RemoveByIdAsync(params object[] keyValues)
         {
-            var entity = await GetByIdAsync(keyValues);
-            if (entity != null)
+            await DbLock.Semaphore.WaitAsync();
+            try
             {
-                _dbSet.Remove(entity);
-                await SaveChangesAsync();
+                var entity = await _dbSet.FindAsync(keyValues);
+                if (entity != null)
+                {
+                    _dbSet.Remove(entity);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
             }
         }
 
         public virtual async Task<int> SaveChangesAsync()
         {
-            return await _context.SaveChangesAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _context.SaveChangesAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
     }
 }

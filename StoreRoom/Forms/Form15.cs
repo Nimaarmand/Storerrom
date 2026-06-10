@@ -17,18 +17,37 @@ namespace StoreRoom.Forms
     {
         private readonly GoodsIssueService _goodsIssueService;
         private Guid _productId;
+
+        // سازنده اول (فقط سرویس)
         public Form15(GoodsIssueService goodsIssueService)
         {
             InitializeComponent();
             _goodsIssueService = goodsIssueService;
         }
+
+        // سازنده دوم (سرویس + شناسه محصول) - برای باز شدن از Form7
+        public Form15(GoodsIssueService goodsIssueService, Guid productId) : this(goodsIssueService)
+        {
+            _productId = productId;
+        }
+
+        // پاک کردن فیلدهای متنی (و در صورت نیاز کامبوباکس‌ها)
         private void Clear()
         {
             textBoxEdit1.Text = "";
             textBoxEdit2.Text = "";
             textBoxEdit3.Text = "";
-            textBoxEdit4.Text = "";     
+            textBoxEdit4.Text = "";
+            // در صورت تمایل می‌توانید کامبوباکس‌ها و دیتاپیکرها را هم ریست کنید:
+            comboBoxEdit1.SelectedIndex = -1;
+            comboBoxEdit2.SelectedIndex = -1;
+            comboBoxEdit3.SelectedIndex = -1;
+            comboBoxEdit4.SelectedIndex = -1;
+            comboBoxEdit5.SelectedIndex = -1;
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = DateTime.Now;
         }
+
         private async Task CreateGoodsReceipt()
         {
             // 0. بررسی شناسه محصول (از قبل در فرم ذخیره شده، مثلاً _productId)
@@ -38,18 +57,14 @@ namespace StoreRoom.Forms
                 return;
             }
 
-            // ==============================
-            // 1. تعداد خروج (Quantity) - اعتبارسنجی
-            // ==============================
+            // 1. تعداد خروج
             if (!decimal.TryParse(textBoxEdit1.Text.Trim(), out decimal quantity) || quantity <= 0)
             {
                 MessageBox.Show("تعداد خروجی (Quantity) باید یک عدد معتبر و بزرگتر از صفر باشد.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // ==============================
-            // 2. قیمت فروش واحد (UnitSellingPrice) - اختیاری اما اگر وارد شود باید >=0 باشد
-            // ==============================
+            // 2. قیمت فروش واحد
             decimal? unitSellingPrice = null;
             if (!string.IsNullOrWhiteSpace(textBoxEdit2.Text.Trim()))
             {
@@ -61,9 +76,7 @@ namespace StoreRoom.Forms
                 unitSellingPrice = price;
             }
 
-            // ==============================
-            // 3. واحد (Unit) - اجباری
-            // ==============================
+            // 3. واحد
             string unit = comboBoxEdit1.Text.Trim();
             if (string.IsNullOrWhiteSpace(unit))
             {
@@ -71,9 +84,7 @@ namespace StoreRoom.Forms
                 return;
             }
 
-            // ==============================
-            // 4. نوع حواله (Type) - اجباری (از یک ComboBox یا RadioButton)
-            // ==============================
+            // 4. نوع حواله
             if (comboBoxEdit3.SelectedValue == null)
             {
                 MessageBox.Show("لطفاً نوع حواله را انتخاب کنید.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -81,14 +92,14 @@ namespace StoreRoom.Forms
             }
             IssueType issueType = (IssueType)comboBoxEdit3.SelectedValue;
 
-            if(comboBoxEdit2.SelectedValue == null)
+            // اعتبارسنجی وضعیت (در صورت وجود کامبوباکس وضعیت)
+            if (comboBoxEdit2.SelectedValue == null)
             {
                 MessageBox.Show("لطفاً وضعیت را انتخاب کنید.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // ==============================
-            // 5. انبار مبدأ (WarehouseId) - اجباری
-            // ==============================
+
+            // 5. انبار مبدأ
             if (comboBoxEdit5.SelectedValue == null)
             {
                 MessageBox.Show("لطفاً انبار مبدأ را انتخاب کنید.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -96,9 +107,7 @@ namespace StoreRoom.Forms
             }
             int warehouseId = (int)comboBoxEdit5.SelectedValue;
 
-            // ==============================
-            // 6. مشتری (CustomerId) - در صورت نیاز (مثلاً نوع حواله فروش)
-            // ==============================
+            // 6. مشتری (در صورت فروش)
             int? customerId = null;
             if (issueType == IssueType.Sale)
             {
@@ -110,17 +119,12 @@ namespace StoreRoom.Forms
                 customerId = (int)comboBoxEdit4.SelectedValue;
             }
 
-            // ==============================
-            // 7. شماره فاکتور (InvoiceNumber) - اختیاری (اما اگر وارد شد اعتبارسنجی نشانی)
-            // ==============================
+            // 7. شماره فاکتور
             string invoiceNumber = textBoxEdit4.Text.Trim();
-            // در صورت نیاز می‌توانید الزامی کنید – ولی در مدل nullable است.
 
-            // ==============================
-            // 8. تاریخ فاکتور (InvoiceDate) - اختیاری
-            // ==============================
+            // 8. تاریخ فاکتور
             DateTime? invoiceDate = null;
-            if (dateTimePicker1.Checked || dateTimePicker1.Enabled) // فرض کنید یک DateTimePicker دارید
+            if (dateTimePicker1.Checked)
             {
                 invoiceDate = dateTimePicker1.Value;
                 if (invoiceDate > DateTime.Today)
@@ -130,24 +134,10 @@ namespace StoreRoom.Forms
                 }
             }
 
-            // ==============================
-            // 9. موقعیت قفسه (ShelfLocation) - اختیاری
-            // ==============================
-            //string shelfLocation = txtShelfLocation.Text.Trim();
-
-            // ==============================
-            // 10. شماره سری/دسته (BatchNumber) - اختیاری
-            // ==============================
-            //string batchNumber = txtBatchNumber.Text.Trim();
-
-            // ==============================
-            // 11. توضیحات (Description) - اختیاری
-            // ==============================
+            // 9. توضیحات
             string description = textBoxEdit3.Text.Trim();
 
-            // ==============================
-            // 12. تاریخ صدور حواله (IssueDate) - اجباری (پیش‌فرض امروز)
-            // ==============================
+            // 10. تاریخ صدور حواله
             DateTime issueDate = dateTimePicker2.Value;
             if (issueDate > DateTime.Today)
             {
@@ -167,13 +157,11 @@ namespace StoreRoom.Forms
                 InvoiceNumber = string.IsNullOrWhiteSpace(invoiceNumber) ? null : invoiceNumber,
                 InvoiceDate = invoiceDate,
                 WarehouseId = warehouseId,
-                //ShelfLocation = shelfLocation,
-                //BatchNumber = batchNumber,
                 Description = description,
                 IssueDate = issueDate,
                 CreatedAt = DateTime.Now,
-                Status = 0,                       // وضعیت پیش‌فرض (مثلاً 0 = ثبت شده)
-                UserId = Program.CurrentUserId    // شناسه کاربر جاری (از جایی که ذخیره کرده‌اید)
+                Status = 0,
+                UserId = Program.CurrentUserId
             };
 
             try
@@ -181,12 +169,18 @@ namespace StoreRoom.Forms
                 await _goodsIssueService.AddAsync(goodsIssue);
                 MessageBox.Show("حواله خروج کالا با موفقیت ثبت شد.", "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
-                Clear();   // متد پاک کردن فرم خود را صدا بزنید
+                Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"خطا در ثبت حواله خروج: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // رویداد کلیک دکمه (فرض می‌شود دکمه‌ای با نام foreverButton1 در فرم وجود دارد
+        private async void foreverButton1_Click_1(object sender, EventArgs e)
+        {
+            await CreateGoodsReceipt();
         }
     }
 }

@@ -210,6 +210,7 @@
             toolStripMenuItem4.Name = "toolStripMenuItem4";
             toolStripMenuItem4.Size = new Size(180, 24);
             toolStripMenuItem4.Text = "ثبت خروج کالا";
+            toolStripMenuItem4.Click += toolStripMenuItem4_Click;
             // 
             // Form7
             // 

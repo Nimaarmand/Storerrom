@@ -14,30 +14,30 @@ namespace StoreRoom.Forms
     public partial class Form16 : MaterialForm
     {
         private readonly UsermanagementService _usermanagementService;
+
         public Form16(UsermanagementService usermanagementService)
         {
             InitializeComponent();
             _usermanagementService = usermanagementService;
         }
+
         private void Clear()
         {
             textBoxEdit1.Text = "";
-
             textBoxEdit2.Text = "";
-
         }
 
-        private async void CreateRole()
+        private async Task CreateRoleAsync()
         {
             string name = textBoxEdit1.Text.Trim();
-            string discription = textBoxEdit2.Text.Trim();
+            string description = textBoxEdit2.Text.Trim(); // توجه: املای صحیح Description
 
             if (string.IsNullOrEmpty(name))
             {
-                MessageBox.Show("نام دسترسی را وارد کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("نام نقش را وارد کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (string.IsNullOrEmpty(discription))
+            if (string.IsNullOrEmpty(description))
             {
                 MessageBox.Show("توضیحات نقش را وارد کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -46,7 +46,7 @@ namespace StoreRoom.Forms
             var role = new Role
             {
                 Name = name,
-                Discription = discription
+                Discription = description   // مطابق با خاصیت در کلاس Role (نه Discription)
             };
 
             try
@@ -55,7 +55,8 @@ namespace StoreRoom.Forms
                 if (result.Succeeded)
                 {
                     MessageBox.Show("نقش با موفقیت ایجاد شد.", "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Clear();
+                    Clear(); // پاک کردن فیلدها برای ثبت بعدی
+                    textBoxEdit1.Focus(); // فوکوس روی نام نقش
                 }
                 else
                 {
@@ -71,7 +72,7 @@ namespace StoreRoom.Forms
 
         private async void foreverButton1_Click(object sender, EventArgs e)
         {
-            CreateRole();
+            await CreateRoleAsync();
         }
     }
 }

@@ -63,6 +63,14 @@ namespace StoreRoom.Forms
             comboBoxEdit1.Text = "";
         }
 
+        // متد جدید برای بازنشانی فرم به حالت درج جدید
+        private void ResetToAddMode()
+        {
+            _warehouseId = 0;
+            foreverButton1.Text = "ذخیره";
+            Clear();
+        }
+
         private async Task SaveWarehouse()
         {
             string name = textBoxEdit1.Text.Trim();
@@ -104,10 +112,9 @@ namespace StoreRoom.Forms
                 return;
             }
 
-            // اگر وضعیت (Status) خالی بود، می‌توانید مقدار پیش‌فرض بدهید
             string status = comboBoxEdit1.Text.Trim();
             if (string.IsNullOrWhiteSpace(status))
-                status = "فعال"; // یا هر مقدار پیش‌فرض دیگر
+                status = "فعال";
 
             try
             {
@@ -124,6 +131,9 @@ namespace StoreRoom.Forms
                     };
                     await _warehouseService.AddAsync(warehouse);
                     MessageBox.Show("انبار با موفقیت ذخیره شد.", "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // پس از ذخیره موفق، فرم برای ثبت بعدی آماده می‌شود
+                    ResetToAddMode();
                 }
                 else // ویرایش
                 {
@@ -141,11 +151,10 @@ namespace StoreRoom.Forms
                     existing.Status = status;
                     await _warehouseService.UpdateAsync(existing);
                     MessageBox.Show("انبار با موفقیت بروزرسانی شد.", "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
 
-                Clear();
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    // پس از بروزرسانی، فرم به حالت درج جدید برمی‌گردد
+                    ResetToAddMode();
+                }
             }
             catch (Exception ex)
             {
@@ -158,4 +167,5 @@ namespace StoreRoom.Forms
             await SaveWarehouse();
         }
     }
+   
 }

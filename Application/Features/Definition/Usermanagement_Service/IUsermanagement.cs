@@ -32,10 +32,10 @@ namespace Application.Features.Definition.Usermanagement_Service
         Task<IList<string>> GetUserRolesAsync(ApplicationUser user);
         Task<bool> IsUserInRoleAsync(ApplicationUser user, string role);
 
-        // مدیریت نقش‌ها (Roles)
+        // مدیریت نقش‌ها (Roles) - با استفاده از Role سفارشی
         Task<IdentityResult> CreateRoleAsync(Role role);
         Task<bool> RoleExistsAsync(string roleName);
-        Task<IEnumerable<IdentityRole>> GetAllRolesAsync();
+        Task<IEnumerable<Role>> GetAllRolesAsync();  // تغییر کلیدی
         Task<IdentityResult> DeleteRoleAsync(string roleName);
     }
 }

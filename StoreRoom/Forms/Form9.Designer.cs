@@ -103,7 +103,7 @@
             // 
             panel1.Controls.Add(poisonDataGridView1);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(3, 332);
+            panel1.Location = new Point(3, 366);
             panel1.Name = "panel1";
             panel1.Size = new Size(1136, 356);
             panel1.TabIndex = 1;
@@ -201,7 +201,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 692);
+            ClientSize = new Size(1143, 726);
             Controls.Add(textBoxEdit1);
             Controls.Add(panel1);
             Controls.Add(flowLayoutPanel1);

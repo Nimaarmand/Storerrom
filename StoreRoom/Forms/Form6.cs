@@ -14,7 +14,7 @@ namespace StoreRoom.Forms
     public partial class Form6 : MaterialForm
     {
         private readonly CategoryService _categoryService;
-        private int _editingCategoryId = 0;  
+        private int _editingCategoryId = 0;
         private Category _currentCategory = null;
 
         public Form6(CategoryService categoryService, int categoryId = 0)
@@ -22,11 +22,15 @@ namespace StoreRoom.Forms
             InitializeComponent();
             _categoryService = categoryService;
             _editingCategoryId = categoryId;
+            this.Load += Form6_Load;
+        }
 
+        private async void Form6_Load(object sender, EventArgs e)
+        {
             if (_editingCategoryId != 0)
             {
                 foreverButton1.Text = "بروزرسانی";
-                LoadCategoryData();
+                await LoadCategoryData();
             }
             else
             {
@@ -34,7 +38,7 @@ namespace StoreRoom.Forms
             }
         }
 
-        private async void LoadCategoryData()
+        private async Task LoadCategoryData()
         {
             _currentCategory = await _categoryService.GetByIdAsync(_editingCategoryId);
             if (_currentCategory != null)
@@ -42,6 +46,26 @@ namespace StoreRoom.Forms
                 textBoxEdit1.Text = _currentCategory.Name;
                 textBoxEdit2.Text = _currentCategory.Description;
             }
+            else
+            {
+                MessageBox.Show("دسته‌بندی یافت نشد.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
+        }
+
+        private void Clear()
+        {
+            textBoxEdit1.Text = "";
+            textBoxEdit2.Text = "";
+        }
+
+        private void ResetToAddMode()
+        {
+            _editingCategoryId = 0;
+            _currentCategory = null;
+            foreverButton1.Text = "ذخیره";
+            Clear();
         }
 
         private async void foreverButton1_Click(object sender, EventArgs e)
@@ -51,41 +75,62 @@ namespace StoreRoom.Forms
 
             if (string.IsNullOrWhiteSpace(name))
             {
-                MessageBox.Show("نام دسته‌بندی نمی‌تواند خالی باشد.", "خطا");
+                MessageBox.Show("نام دسته‌بندی نمی‌تواند خالی باشد.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (_editingCategoryId == 0)  
+            try
             {
-                var newCategory = new Category
+                if (_editingCategoryId == 0) // درج جدید
                 {
-                    Name = name,
-                    Description = string.IsNullOrWhiteSpace(description) ? null : description,
-                    IsActive = true
-                };
-                var result = await _categoryService.CreateCategoryAsync(newCategory);
-                if (result.Success)
-                    MessageBox.Show("دسته‌بندی با موفقیت ثبت شد.", "موفق");
-                else
-                    MessageBox.Show(result.Message, "خطا");
+                    var newCategory = new Category
+                    {
+                        Name = name,
+                        Description = string.IsNullOrWhiteSpace(description) ? null : description,
+                        IsActive = true
+                    };
+                    // فرض می‌کنیم CategoryService متد CreateCategoryAsync دارد
+                    var result = await _categoryService.CreateCategoryAsync(newCategory);
+                    if (result.Success)
+                    {
+                        MessageBox.Show("دسته‌بندی با موفقیت ثبت شد.", "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ResetToAddMode(); // بازنشانی به حالت درج جدید
+                    }
+                    else
+                    {
+                        MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else // ویرایش
+                {
+                    if (_currentCategory == null)
+                        _currentCategory = await _categoryService.GetByIdAsync(_editingCategoryId);
+
+                    if (_currentCategory == null)
+                    {
+                        MessageBox.Show("دسته‌بندی یافت نشد.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    _currentCategory.Name = name;
+                    _currentCategory.Description = description;
+
+                    var result = await _categoryService.UpdateCategoryAsync(_currentCategory);
+                    if (result.Success)
+                    {
+                        MessageBox.Show("دسته‌بندی با موفقیت بروزرسانی شد.", "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ResetToAddMode(); // پس از بروزرسانی، فرم به حالت درج جدید بازمی‌گردد
+                    }
+                    else
+                    {
+                        MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else  
+            catch (Exception ex)
             {
-                if (_currentCategory == null)
-                    _currentCategory = await _categoryService.GetByIdAsync(_editingCategoryId);
-
-                _currentCategory.Name = name;
-                _currentCategory.Description = description;
-
-                var result = await _categoryService.UpdateCategoryAsync(_currentCategory);
-                if (result.Success)
-                    MessageBox.Show("دسته‌بندی با موفقیت بروزرسانی شد.", "موفق");
-                else
-                    MessageBox.Show(result.Message, "خطا");
+                MessageBox.Show($"خطا در ذخیره‌سازی: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            this.DialogResult = DialogResult.OK;
-            this.Close();
         }
     }
 }

@@ -39,15 +39,13 @@ namespace StoreRoom
             // 1. DbContextها
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
-
             services.AddDbContext<IdentityContext>(options =>
                 options.UseSqlServer(connectionString));
-
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
-            // 2. Identity (UserManager, RoleManager به صورت Scoped)
+            // 2. Identity
             services.AddIdentityCore<ApplicationUser>()
-                .AddRoles<IdentityRole>()
+                .AddRoles<Role>()
                 .AddEntityFrameworkStores<IdentityContext>()
                 .AddDefaultTokenProviders();
 
@@ -78,17 +76,34 @@ namespace StoreRoom
             services.AddScoped<CategoryService>();
             services.AddScoped<UsermanagementService>();
 
-            // 6. ثبت فرم‌ها به صورت Transient
+            // 6. فرم‌ها
             services.AddTransient<Form1>();
             services.AddTransient<Form2>();
-            // ... سایر فرم‌ها
+            services.AddTransient<Form3>();
+            services.AddTransient<Form4>();
+            services.AddTransient<Form5>();
+            services.AddTransient<Form6>();
+            services.AddTransient<Form7>();
+            services.AddTransient<Form8>();
+            services.AddTransient<Form9>();
+            services.AddTransient<Form10>();
+            services.AddTransient<Form11>();
+            services.AddTransient<Form12>();
+            services.AddTransient<Form13>();
+            services.AddTransient<Form14>();
+            services.AddTransient<Form15>();
+            services.AddTransient<Form16>();
             services.AddTransient<Form17>();
             services.AddTransient<Form18>();
+            services.AddTransient<Form19>();
+            services.AddTransient<Form20>();
+            services.AddTransient<Form21>();
+            services.AddTransient<Form22>();
 
             ServiceProvider = services.BuildServiceProvider();
 
-            var mainForm = ServiceProvider.GetRequiredService<Form1>();
-           System.Windows.Forms.Application.Run(mainForm);
+            var mainForm = ServiceProvider.GetRequiredService<Form14>();
+          System.Windows.Forms.  Application.Run(mainForm);
         }
     }
 }

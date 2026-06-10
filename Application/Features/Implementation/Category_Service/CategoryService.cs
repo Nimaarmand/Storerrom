@@ -1,4 +1,5 @@
 ﻿using Application.Features.Definition.Context;
+using Application.Features.Implementation.Common;
 using Application.Features.Implementation.GenericRepository_Service;
 using Domain.Entity;
 using Microsoft.EntityFrameworkCore;
@@ -18,45 +19,84 @@ namespace Application.Features.Implementation.Category_Service
         // ========== متد سفارشی برای دریافت N رکورد اول ==========
         public async Task<IEnumerable<Category>> GetTopCategoryAsync(int count)
         {
-            return await _dbSet
-                .OrderByDescending(c => c.CategoryId) // جدیدترین‌ها اول
-                .Take(count)
-                .ToListAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet
+                    .OrderByDescending(c => c.CategoryId)
+                    .Take(count)
+                    .ToListAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         // ========== سایر متدهای سرویس (تک‌نسخه) ==========
-
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
         {
-            return await _dbSet
-                .Include(c => c.SubCategories)
-                .OrderBy(c => c.Name)
-                .ToListAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet
+                    .Include(c => c.SubCategories)
+                    .OrderBy(c => c.Name)
+                    .ToListAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public async Task<Category> GetCategoryByIdAsync(int id)
         {
-            return await _dbSet
-                .Include(c => c.SubCategories)
-                .Include(c => c.Parent)
-                .FirstOrDefaultAsync(c => c.CategoryId == id);
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet
+                    .Include(c => c.SubCategories)
+                    .Include(c => c.Parent)
+                    .FirstOrDefaultAsync(c => c.CategoryId == id);
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public async Task<IEnumerable<Category>> GetRootCategoriesAsync()
         {
-            return await _dbSet
-                .Include(c => c.SubCategories)
-                .Where(c => c.ParentId == null)
-                .OrderBy(c => c.Name)
-                .ToListAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet
+                    .Include(c => c.SubCategories)
+                    .Where(c => c.ParentId == null)
+                    .OrderBy(c => c.Name)
+                    .ToListAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public async Task<IEnumerable<Category>> GetSubCategoriesAsync(int parentId)
         {
-            return await _dbSet
-                .Where(c => c.ParentId == parentId)
-                .OrderBy(c => c.Name)
-                .ToListAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet
+                    .Where(c => c.ParentId == parentId)
+                    .OrderBy(c => c.Name)
+                    .ToListAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public async Task<IEnumerable<Category>> SearchByNameAsync(string name)
@@ -64,22 +104,39 @@ namespace Application.Features.Implementation.Category_Service
             if (string.IsNullOrWhiteSpace(name))
                 return await GetAllCategoriesAsync();
 
-            return await _dbSet
-                .Where(c => c.Name.Contains(name))
-                .ToListAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet
+                    .Where(c => c.Name.Contains(name))
+                    .ToListAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public async Task<bool> IsCategoryNameExistsAsync(string name, int? excludeId = null)
         {
-            var query = _dbSet.Where(c => c.Name == name);
-            if (excludeId.HasValue)
-                query = query.Where(c => c.CategoryId != excludeId.Value);
-            return await query.AnyAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                var query = _dbSet.Where(c => c.Name == name);
+                if (excludeId.HasValue)
+                    query = query.Where(c => c.CategoryId != excludeId.Value);
+                return await query.AnyAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
 
         public async Task<bool> IsValidParentCategoryAsync(int? parentId, int? currentCategoryId = null)
         {
             if (!parentId.HasValue) return true;
+            // برای دریافت والد از GetByIdAsync که خود قفل دارد استفاده می‌کنیم (نیازی به قفل اضافی نیست)
             var parent = await GetByIdAsync(parentId.Value);
             if (parent == null) return false;
             if (currentCategoryId.HasValue && parentId == currentCategoryId) return false;
@@ -96,7 +153,7 @@ namespace Application.Features.Implementation.Category_Service
             category.CreatedAt = DateTime.Now;
             category.IsActive = true;
 
-            var created = await AddAsync(category);
+            var created = await AddAsync(category); // AddAsync قفل دارد
             return (true, "دسته‌بندی با موفقیت اضافه شد", created);
         }
 
@@ -109,25 +166,35 @@ namespace Application.Features.Implementation.Category_Service
             if (!await IsValidParentCategoryAsync(category.ParentId, category.CategoryId))
                 return (false, "والد انتخاب شده نامعتبر است (احتمالاً خود دسته یا نوادگان آن است)", null);
 
-            var existing = await GetByIdAsync(category.CategoryId);
+            var existing = await GetByIdAsync(category.CategoryId); // GetByIdAsync قفل دارد
             if (existing == null) return (false, "دسته‌بندی یافت نشد", null);
 
             category.CreatedAt = existing.CreatedAt;
             category.IsActive = existing.IsActive;
 
-            var updated = await UpdateAsync(category);
+            var updated = await UpdateAsync(category); // UpdateAsync قفل دارد
             return (true, "دسته‌بندی با موفقیت بروزرسانی شد", updated);
         }
 
         public async Task<(bool Success, string Message)> DeleteCategoryAsync(int id)
         {
-            var category = await GetCategoryByIdAsync(id);
+            var category = await GetCategoryByIdAsync(id); // GetCategoryByIdAsync قفل دارد
             if (category == null) return (false, "دسته‌بندی یافت نشد");
 
-            if (category.SubCategories != null && category.SubCategories.Any())
-                return (false, "این دسته‌بندی دارای زیردسته است. ابتدا زیردسته‌ها را حذف یا جابه‌جا کنید.");
+            // بررسی زیردسته‌ها نیاز به دسترسی به دیتابیس دارد، بنابراین باید قفل بگیریم
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                var hasSub = await _dbSet.AnyAsync(c => c.ParentId == id);
+                if (hasSub)
+                    return (false, "این دسته‌بندی دارای زیردسته است. ابتدا زیردسته‌ها را حذف یا جابه‌جا کنید.");
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
 
-            await RemoveAsync(category);
+            await RemoveAsync(category); // RemoveAsync قفل دارد
             return (true, "دسته‌بندی با موفقیت حذف شد");
         }
 
@@ -151,11 +218,19 @@ namespace Application.Features.Implementation.Category_Service
 
         public async Task<IEnumerable<Category>> GetPagedAsync(int pageNumber, int pageSize)
         {
-            return await _dbSet
-                .OrderBy(c => c.Name)
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
+            await DbLock.Semaphore.WaitAsync();
+            try
+            {
+                return await _dbSet
+                    .OrderBy(c => c.Name)
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync();
+            }
+            finally
+            {
+                DbLock.Semaphore.Release();
+            }
         }
     }
 }

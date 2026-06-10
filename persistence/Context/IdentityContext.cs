@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
-public class IdentityContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
+public class IdentityContext : IdentityDbContext<ApplicationUser,Role,string>, IApplicationDbContext
 {
     // سازنده برای استفاده در برنامه (با تزریق وابستگی)
     public IdentityContext(DbContextOptions<IdentityContext> options) : base(options)

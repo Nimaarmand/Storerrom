@@ -1,8 +1,9 @@
-﻿using Application.Features.Definition.GenericRepository;
-using Domain.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+using Application.Features.Definition.GenericRepository;
+using Domain.Entity;
 
 namespace Application.Features.Implementation.Warehouse_Service
 {
@@ -30,7 +31,6 @@ namespace Application.Features.Implementation.Warehouse_Service
 
         public async Task DeleteAsync(int id)
             => await _warehouseRepo.RemoveByIdAsync(id);
-
 
         public Task<IEnumerable<Warehouse>> GetTopWarehousesAsync(int count)
         {
@@ -80,7 +80,22 @@ namespace Application.Features.Implementation.Warehouse_Service
                 warehouses = warehouses.Where(w => w.WarehouseId != excludeId.Value);
             return !warehouses.Any();
         }
+
+        // ========== متد جستجوی پیشرفته با پشتیبانی از Code و Location ==========
+        public async Task<IEnumerable<Warehouse>> SearchWarehousesAsync(string keyword)
+        {
+          
+            if (string.IsNullOrWhiteSpace(keyword))
+                return await GetAllAsync();
+
+            keyword = keyword.Trim().ToLower();
+
+            
+            return await _warehouseRepo.FindAsync(w =>
+                (w.Name != null && w.Name.ToLower().Contains(keyword)) ||
+               
+                (w.Location != null && w.Location.ToLower().Contains(keyword))
+            );
+        }
     }
 }
-
-

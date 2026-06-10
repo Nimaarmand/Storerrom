@@ -101,7 +101,7 @@ namespace StoreRoom.Forms
             try
             {
 
-                var customer = await _customerService.GetTopSuppliersAsync(count);
+                var customer = await _customerService.GetTopCustomersAsync(count);
                 poisonDataGridView1.DataSource = customer.ToList();
                 DgvPersian();
                 CustomizeDataGridView();

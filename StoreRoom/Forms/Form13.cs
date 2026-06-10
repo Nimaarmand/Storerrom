@@ -20,21 +20,17 @@ namespace StoreRoom.Forms
 
         private void Form13_Load(object sender, EventArgs e)
         {
-            // تنظیم حالت مخفی بودن رمز در ابتدا
             textBoxEdit1.UseSystemPasswordChar = true;
             textBoxEdit2.UseSystemPasswordChar = true;
-            // فقط اعداد در فیلد شماره تلفن پذیرفته شود
             textBoxEdit3.KeyPress += TextBoxPhone_KeyPress;
         }
 
-        // اجازه ورود فقط اعداد در فیلد شماره تلفن
         private void TextBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true; // جلوگیری از وارد شدن کاراکتر غیرعددی
+                e.Handled = true;
         }
 
-        // متد پاکسازی کاراکترهای مخفی
         private string NormalizeString(string input)
         {
             if (string.IsNullOrEmpty(input)) return string.Empty;
@@ -42,15 +38,14 @@ namespace StoreRoom.Forms
             return cleanString.Trim();
         }
 
-        // تبدیل اعداد فارسی/عربی به انگلیسی
         private string ConvertToEnglishDigits(string input)
         {
             var map = new (char Persian, char English)[]
             {
-                ('۰','0'), ('۱','1'), ('۲','2'), ('۳','3'), ('۴','4'),
-                ('۵','5'), ('۶','6'), ('۷','7'), ('۸','8'), ('۹','9'),
-                ('٠','0'), ('١','1'), ('٢','2'), ('٣','3'), ('٤','4'),
-                ('٥','5'), ('٦','6'), ('٧','7'), ('٨','8'), ('٩','9')
+            ('۰','0'), ('۱','1'), ('۲','2'), ('۳','3'), ('۴','4'),
+            ('۵','5'), ('۶','6'), ('۷','7'), ('۸','8'), ('۹','9'),
+            ('٠','0'), ('١','1'), ('٢','2'), ('٣','3'), ('٤','4'),
+            ('٥','5'), ('٦','6'), ('٧','7'), ('٨','8'), ('٩','9')
             };
             var result = input;
             foreach (var item in map)
@@ -58,7 +53,6 @@ namespace StoreRoom.Forms
             return result;
         }
 
-        // اعتبارسنجی شماره تلفن ایران (موبایل)
         private bool IsValidIranianPhoneNumber(string phoneNumber)
         {
             if (phoneNumber.Length != 11) return false;
@@ -66,28 +60,25 @@ namespace StoreRoom.Forms
             return phoneNumber.All(char.IsDigit);
         }
 
-        private async void Createuser()
+        private async Task CreateUserAsync()
         {
             string rawPhone = textBoxEdit3.Text.Trim();
             string fullname = textBoxEdit4.Text.Trim();
             string password = NormalizeString(textBoxEdit1.Text);
             string confirmPassword = NormalizeString(textBoxEdit2.Text);
 
-            // اعتبارسنجی نام کامل
             if (string.IsNullOrWhiteSpace(fullname))
             {
                 MessageBox.Show("نام و نام خانوادگی نمی‌تواند خالی باشد.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // اعتبارسنجی شماره تلفن
             if (string.IsNullOrWhiteSpace(rawPhone))
             {
                 MessageBox.Show("شماره تلفن نمی‌تواند خالی باشد.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // تبدیل اعداد فارسی/عربی به انگلیسی و حذف کاراکترهای غیرعددی
             string englishPhone = ConvertToEnglishDigits(rawPhone);
             string cleanedPhone = new string(englishPhone.Where(char.IsDigit).ToArray());
 
@@ -97,7 +88,6 @@ namespace StoreRoom.Forms
                 return;
             }
 
-            // اعتبارسنجی رمز عبور
             if (string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("رمز عبور را وارد کنید.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -111,10 +101,9 @@ namespace StoreRoom.Forms
 
             var applicationUser = new ApplicationUser
             {
-                UserName = cleanedPhone,   // نام کاربری = شماره تلفن پاک‌شده (رقم انگلیسی)
+                UserName = cleanedPhone,
                 FullName = fullname,
                 IsActive = true
-                // ایمیل مقداردهی نمی‌شود (null)
             };
 
             try
@@ -123,10 +112,12 @@ namespace StoreRoom.Forms
                 if (result.Succeeded)
                 {
                     MessageBox.Show("ثبت‌نام با موفقیت انجام شد.", "موفقیت", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // پاک کردن فیلدها و آماده‌سازی برای ثبت بعدی
                     textBoxEdit1.Text = "";
                     textBoxEdit2.Text = "";
                     textBoxEdit3.Text = "";
                     textBoxEdit4.Text = "";
+                    textBoxEdit4.Focus(); // فوکوس روی نام کاربر جدید
                 }
                 else
                 {
@@ -142,12 +133,11 @@ namespace StoreRoom.Forms
 
         private async void foreverButton1_Click(object sender, EventArgs e)
         {
-            Createuser();
+            await CreateUserAsync();
         }
 
         private void materialCheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            // نمایش/مخفی کردن رمز عبور و تکرار آن
             textBoxEdit1.UseSystemPasswordChar = !materialCheckBox1.Checked;
             textBoxEdit2.UseSystemPasswordChar = !materialCheckBox1.Checked;
         }

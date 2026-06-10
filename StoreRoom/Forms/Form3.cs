@@ -17,7 +17,7 @@ namespace StoreRoom.Forms
             InitializeComponent();
             _supplierService = supplierService;
             _supplierId = supplierId;
-            this.Load += Form3_Load; 
+            this.Load += Form3_Load;
         }
 
         // پاک کردن فیلدها
@@ -27,6 +27,14 @@ namespace StoreRoom.Forms
             textBoxEdit2.Text = "";
             textBoxEdit3.Text = "";
             textBoxEdit4.Text = "";
+        }
+
+        // بازنشانی فرم به حالت درج جدید
+        private void ResetToAddMode()
+        {
+            _supplierId = 0;
+            foreverButton1.Text = "ذخیره";
+            Clear();
         }
 
         // بارگذاری اطلاعات در حالت ویرایش
@@ -94,6 +102,7 @@ namespace StoreRoom.Forms
                     };
                     await _supplierService.AddAsync(newSupplier);
                     MessageBox.Show("تأمین‌کننده با موفقیت ذخیره شد.", "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetToAddMode(); // بازنشانی به حالت درج جدید
                 }
                 else // ویرایش
                 {
@@ -109,11 +118,8 @@ namespace StoreRoom.Forms
                     existing.Address = string.IsNullOrWhiteSpace(address) ? null : address;
                     await _supplierService.UpdateAsync(existing);
                     MessageBox.Show("تأمین‌کننده با موفقیت بروزرسانی شد.", "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetToAddMode(); // پس از بروزرسانی، فرم به حالت درج جدید بازمی‌گردد
                 }
-
-                Clear();
-                this.DialogResult = DialogResult.OK;
-                this.Close();
             }
             catch (Exception ex)
             {

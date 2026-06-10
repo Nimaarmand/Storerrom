@@ -1,5 +1,8 @@
-﻿using Application.Features.Implementation.GoodsReceipt_Service;
+﻿using Application.Features.Implementation.GoodsIssue_Service;
+using Application.Features.Implementation.GoodsReceipt_Service;
 using Application.Features.Implementation.Product_Service;
+using Application.Features.Implementation.Supplier_Service;
+using Application.Features.Implementation.Warehouse_Service;
 using Domain.Entity;
 using Microsoft.Extensions.DependencyInjection;
 using ReaLTaiizor.Forms;
@@ -180,8 +183,26 @@ namespace StoreRoom.Forms
                 MessageBox.Show("لطفاً ابتدا یک سطر را انتخاب کنید.", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            // دریافت سرویس‌های مورد نیاز از DI
             var goodsReceiptService = Program.ServiceProvider.GetRequiredService<GoodsReceiptService>();
-            var createform = new Form12(goodsReceiptService, _productId);
+            var warehouseService = Program.ServiceProvider.GetRequiredService<WarehouseService>();
+            var supplierService = Program.ServiceProvider.GetRequiredService<SupplierService>();
+
+            // ارسال تمام وابستگی‌ها به سازنده
+            var createform = new Form12(goodsReceiptService, warehouseService, supplierService, _productId);
+            createform.ShowDialog();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            if (_productId == Guid.Empty)
+            {
+                MessageBox.Show("لطفاً ابتدا یک سطر را انتخاب کنید.", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var GoodsIssueService = Program.ServiceProvider.GetRequiredService<GoodsIssueService>();
+            var createform = new Form15(GoodsIssueService, _productId);
             createform.ShowDialog();
         }
     }

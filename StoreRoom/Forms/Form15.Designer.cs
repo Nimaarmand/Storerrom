@@ -366,6 +366,7 @@
             foreverButton1.TabIndex = 25;
             foreverButton1.Text = "ذخیره";
             foreverButton1.TextColor = Color.FromArgb(243, 243, 243);
+            foreverButton1.Click += foreverButton1_Click_1;
             // 
             // label1
             // 

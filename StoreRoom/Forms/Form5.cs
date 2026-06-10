@@ -36,6 +36,16 @@ namespace StoreRoom.Forms
             comboBoxEdit1.Text = "";
             dateTimePicker1.Value = DateTime.Now;
             dateTimePicker2.Value = DateTime.Now;
+            // اگر از CheckBox برای فعال/غیرفعال کردن تاریخ استفاده می‌کنید، آن را هم ریست کنید
+            dateTimePicker1.Checked = true;
+            dateTimePicker2.Checked = true;
+        }
+
+        private void ResetToAddMode()
+        {
+            _productId = Guid.Empty;
+            foreverButton1.Text = "ذخیره";
+            Clear();
         }
 
         private async Task SaveProduct()
@@ -56,8 +66,6 @@ namespace StoreRoom.Forms
                 decimal? minStock = null;
                 if (!string.IsNullOrWhiteSpace(textBoxEdit4.Text) && decimal.TryParse(textBoxEdit4.Text, out decimal min))
                     minStock = min;
-
-               
 
                 decimal? maxStock = null;
                 if (!string.IsNullOrWhiteSpace(textBoxEdit3.Text) && decimal.TryParse(textBoxEdit3.Text, out decimal max))
@@ -109,7 +117,7 @@ namespace StoreRoom.Forms
                     if (result.Success)
                     {
                         MessageBox.Show(result.Message, "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Clear();
+                        ResetToAddMode(); // بازنشانی به حالت درج جدید
                     }
                     else
                         MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -137,14 +145,13 @@ namespace StoreRoom.Forms
                     if (result.Success)
                     {
                         MessageBox.Show(result.Message, "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Clear();
+                        ResetToAddMode(); // پس از بروزرسانی، فرم به حالت درج جدید می‌رود
                     }
                     else
                         MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                // حذف شد: this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {

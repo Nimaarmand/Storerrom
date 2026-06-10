@@ -1,4 +1,4 @@
-﻿using Application.Features.Implementation.Warehouse_Service;
+﻿﻿using Application.Features.Implementation.Warehouse_Service;
 using Domain.Entity;
 using ReaLTaiizor.Forms;
 using System;
@@ -161,14 +161,35 @@ namespace StoreRoom.Forms
                 MessageBox.Show("هیچ انباری با این عبارت یافت نشد.", "نتیجه جستجو", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        // ========== جستجوی زنده ==========
         private async void textBoxEdit1_TextChanged_1(object sender, EventArgs e)
         {
-            string name = textBoxEdit1.Text.Trim();
+            string keyword = textBoxEdit1.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(name))
+            // اگر عبارت جستجو خالی است یا placeholder است، همه انبارها را نشان بده
+            if (string.IsNullOrWhiteSpace(keyword) || keyword == "جستجو ...")
             {
                 await LoadWarehousesAsync(showEmptyMessage: false);
                 return;
+            }
+
+            try
+            {
+                var searchResults = await _warehouseService.SearchWarehousesAsync(keyword);
+                poisonDataGridView1.DataSource = searchResults.ToList();
+
+                // پس از اتصال داده، دوباره تنظیمات فارسی و ظاهری را اعمال کن
+                DgvPersian();
+                CustomizeDataGridView();
+
+                if (!searchResults.Any())
+                {
+                    MessageBox.Show("هیچ انباری با عبارت مورد نظر یافت نشد.", "نتیجه جستجو", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"خطا در جستجو: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

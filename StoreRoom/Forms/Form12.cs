@@ -1,27 +1,35 @@
 ﻿using Application.Features.Implementation.GoodsReceipt_Service;
+using Application.Features.Implementation.Supplier_Service;
+using Application.Features.Implementation.Warehouse_Service;
 using Domain.Entity;
 using ReaLTaiizor.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace StoreRoom.Forms
-{  
+{
     public partial class Form12 : MaterialForm
     {
         private readonly GoodsReceiptService _goodsReceiptService;
+        private readonly WarehouseService _warehouseService;
+        private readonly SupplierService _supplierService;
         private Guid _productId;
-        public Form12(GoodsReceiptService goodsReceiptService, Guid productId)
+
+        public Form12(
+            GoodsReceiptService goodsReceiptService,
+            WarehouseService warehouseService,
+            SupplierService supplierService,
+            Guid productId)
         {
             InitializeComponent();
             _goodsReceiptService = goodsReceiptService;
+            _warehouseService = warehouseService;
+            _supplierService = supplierService;
             _productId = productId;
+            this.Load += Form12_Load;
         }
-        
+
+        // پاک کردن همه فیلدها
         private void Clear()
         {
             textBoxEdit1.Text = "";
@@ -31,7 +39,12 @@ namespace StoreRoom.Forms
             textBoxEdit5.Text = "";
             textBoxEdit6.Text = "";
             textBoxEdit7.Text = "";
+            comboBoxEdit1.SelectedIndex = -1;
+            comboBoxEdit2.SelectedIndex = -1;
+            comboBoxEdit3.SelectedIndex = -1;
+            dateTimePicker1.Value = DateTime.Now;
         }
+
         private async Task CreateGoodsReceipt()
         {
             // 0. بررسی وجود شناسه محصول
@@ -87,7 +100,7 @@ namespace StoreRoom.Forms
                 return;
             }
 
-            // 7. اعتبارسنجی تاریخ فاکتور (اختیاری - در صورت نیاز)
+            // 7. اعتبارسنجی تاریخ فاکتور
             DateTime invoiceDate = dateTimePicker1.Value;
             if (invoiceDate > DateTime.Today)
             {
@@ -95,12 +108,12 @@ namespace StoreRoom.Forms
                 return;
             }
 
-            // 8. مقداردهی فیلدهای اختیاری (در صورت خالی بودن، null ارسال شود)
+            // 8. فیلدهای اختیاری
             string shelfLocation = string.IsNullOrWhiteSpace(textBoxEdit6.Text.Trim()) ? null : textBoxEdit6.Text.Trim();
             string batchNumber = string.IsNullOrWhiteSpace(textBoxEdit7.Text.Trim()) ? null : textBoxEdit7.Text.Trim();
             string description = string.IsNullOrWhiteSpace(textBoxEdit4.Text.Trim()) ? null : textBoxEdit4.Text.Trim();
+            string scannedBarcode = string.IsNullOrWhiteSpace(textBoxEdit3.Text.Trim()) ? null : textBoxEdit3.Text.Trim();
 
-            // ساخت شیء
             var receipt = new GoodsReceipt
             {
                 ProductId = _productId,
@@ -114,20 +127,23 @@ namespace StoreRoom.Forms
                 ShelfLocation = shelfLocation,
                 BatchNumber = batchNumber,
                 Description = description,
-                ScannedBarcode = textBoxEdit3.Text,
+                ScannedBarcode = scannedBarcode,
                 TaxRate = 0,
                 ReceiptDate = DateTime.Today,
                 CreatedAt = DateTime.Now,
                 Status = 0,
-                UserId = Program.CurrentUserId 
+                UserId = Program.CurrentUserId
             };
 
             try
             {
                 await _goodsReceiptService.AddAsync(receipt);
                 MessageBox.Show("رسید انبار با موفقیت ثبت شد.", "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.OK;
-                this.Clear();
+
+                // ✅ بعد از ثبت موفق، فرم بسته نمی‌شود، فقط فیلدها پاک می‌شوند
+                Clear();
+                // در صورت تمایل فوکوس به اولین فیلد
+                textBoxEdit1.Focus();
             }
             catch (Exception ex)
             {
@@ -138,6 +154,23 @@ namespace StoreRoom.Forms
         private async void foreverButton1_Click(object sender, EventArgs e)
         {
             await CreateGoodsReceipt();
+        }
+
+        private async void Form12_Load(object sender, EventArgs e)
+        {
+            // بارگذاری انبارها
+            var warehouses = await _warehouseService.GetAllAsync();
+            comboBoxEdit2.DataSource = warehouses.ToList();
+            comboBoxEdit2.DisplayMember = "Name";
+            comboBoxEdit2.ValueMember = "WarehouseId";
+            comboBoxEdit2.SelectedIndex = -1;
+
+            // بارگذاری تأمین‌کنندگان
+            var suppliers = await _supplierService.GetAllAsync();
+            comboBoxEdit3.DataSource = suppliers.ToList();
+            comboBoxEdit3.DisplayMember = "Name";
+            comboBoxEdit3.ValueMember = "SupplierId";
+            comboBoxEdit3.SelectedIndex = -1;
         }
     }
 }

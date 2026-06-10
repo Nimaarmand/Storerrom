@@ -45,7 +45,7 @@ namespace StoreRoom.Forms
                         Program.CurrentUserId = user.Id;
                     }
 
-                   
+
 
                     var mainForm = Program.ServiceProvider.GetRequiredService<Form1>();
                     mainForm.Show();
@@ -60,6 +60,22 @@ namespace StoreRoom.Forms
             {
                 MessageBox.Show($"خطا در اتصال: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void foreverButton2_Click(object sender, EventArgs e)
+        {
+            var form20 = Program.ServiceProvider.GetRequiredService<Form20>();
+            form20.ShowDialog();
+        }
+
+        private void Form14_Load(object sender, EventArgs e)
+        {
+            textBoxEdit2.UseSystemPasswordChar = true;
+        }
+
+        private void materialCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxEdit2.UseSystemPasswordChar = !materialCheckBox1.Checked;
         }
     }
 }
