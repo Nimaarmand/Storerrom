@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label4 = new Label();
+            textBoxEdit4 = new ReaLTaiizor.Controls.TextBoxEdit();
             foreverButton1 = new ReaLTaiizor.Controls.ForeverButton();
             materialCheckBox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
             label2 = new Label();
@@ -37,8 +39,6 @@
             textBoxEdit1 = new ReaLTaiizor.Controls.TextBoxEdit();
             label3 = new Label();
             textBoxEdit3 = new ReaLTaiizor.Controls.TextBoxEdit();
-            label4 = new Label();
-            textBoxEdit4 = new ReaLTaiizor.Controls.TextBoxEdit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,6 +59,33 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(580, 449);
             panel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Location = new Point(416, 3);
+            label4.Name = "label4";
+            label4.Size = new Size(151, 19);
+            label4.TabIndex = 41;
+            label4.Text = "نام ونام خانوادگی :";
+            // 
+            // textBoxEdit4
+            // 
+            textBoxEdit4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxEdit4.BackColor = Color.Transparent;
+            textBoxEdit4.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBoxEdit4.ForeColor = Color.White;
+            textBoxEdit4.Image = null;
+            textBoxEdit4.Location = new Point(149, 3);
+            textBoxEdit4.MaxLength = 32767;
+            textBoxEdit4.Multiline = false;
+            textBoxEdit4.Name = "textBoxEdit4";
+            textBoxEdit4.ReadOnly = false;
+            textBoxEdit4.Size = new Size(261, 43);
+            textBoxEdit4.TabIndex = 40;
+            textBoxEdit4.TextAlignment = HorizontalAlignment.Left;
+            textBoxEdit4.UseSystemPasswordChar = false;
             // 
             // foreverButton1
             // 
@@ -175,33 +202,6 @@
             textBoxEdit3.TextAlignment = HorizontalAlignment.Left;
             textBoxEdit3.UseSystemPasswordChar = false;
             // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Location = new Point(416, 3);
-            label4.Name = "label4";
-            label4.Size = new Size(151, 19);
-            label4.TabIndex = 41;
-            label4.Text = "نام ونام خانوادگی :";
-            // 
-            // textBoxEdit4
-            // 
-            textBoxEdit4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBoxEdit4.BackColor = Color.Transparent;
-            textBoxEdit4.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxEdit4.ForeColor = Color.White;
-            textBoxEdit4.Image = null;
-            textBoxEdit4.Location = new Point(149, 3);
-            textBoxEdit4.MaxLength = 32767;
-            textBoxEdit4.Multiline = false;
-            textBoxEdit4.Name = "textBoxEdit4";
-            textBoxEdit4.ReadOnly = false;
-            textBoxEdit4.Size = new Size(261, 43);
-            textBoxEdit4.TabIndex = 40;
-            textBoxEdit4.TextAlignment = HorizontalAlignment.Left;
-            textBoxEdit4.UseSystemPasswordChar = false;
-            // 
             // Form13
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
@@ -213,6 +213,7 @@
             Name = "Form13";
             Padding = new Padding(3, 64, 4, 4);
             RightToLeft = RightToLeft.Yes;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ثبت نام";
             Load += Form13_Load;
             panel1.ResumeLayout(false);

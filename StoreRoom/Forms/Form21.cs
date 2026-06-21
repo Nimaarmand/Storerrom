@@ -1,4 +1,5 @@
-﻿using Application.Features.Implementation.GoodsReceipt_Service;
+﻿using Application.Features.Implementation.GoodsIssue_Service;
+using Application.Features.Implementation.GoodsReceipt_Service;
 using ReaLTaiizor.Forms;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace StoreRoom.Forms
     public partial class Form21 : MaterialForm
     {
         private readonly GoodsReceiptService _goodsReceiptService;
-
+        int _ReceiptId = 0;
         public Form21(GoodsReceiptService goodsReceiptService)
         {
             InitializeComponent();
@@ -70,9 +71,6 @@ namespace StoreRoom.Forms
             {
                 col.Visible = false;
             }
-
-            
-
             // ستون نام محصول
             if (poisonDataGridView1.Columns.Contains("ProductName"))
             {
@@ -153,82 +151,20 @@ namespace StoreRoom.Forms
             {
                 poisonDataGridView1.Columns["StatusText"].Visible = true;
                 poisonDataGridView1.Columns["StatusText"].HeaderText = "وضعیت";
-                poisonDataGridView1.Columns["StatusText"].DisplayIndex =10;
+                poisonDataGridView1.Columns["StatusText"].DisplayIndex = 10;
             }
 
-           
-            
+
+
             if (poisonDataGridView1.Columns.Contains("FullName"))
             {
                 poisonDataGridView1.Columns["FullName"].Visible = true;
                 poisonDataGridView1.Columns["FullName"].HeaderText = "‌تحویل گیرنده";
                 poisonDataGridView1.Columns["FullName"].DisplayIndex = 11;
             }
-            
+
         }
-        //private void DgvPersian()
-        //{
-        //    // مخفی کردن ستون ReceiptId (در صورت وجود)
-        //    if (poisonDataGridView1.Columns.Contains("ReceiptId"))
-        //        poisonDataGridView1.Columns["ReceiptId"].Visible = false;
-        //    if (poisonDataGridView1.Columns.Contains("BatchNumber"))
-        //        poisonDataGridView1.Columns["BatchNumber"].Visible = false;
 
-        //    // عنوان‌های فارسی برای ستون‌های DTO
-        //    if (poisonDataGridView1.Columns.Contains("ProductName"))
-        //        poisonDataGridView1.Columns["ProductName"].HeaderText = "نام محصول";
-        //    if (poisonDataGridView1.Columns.Contains("SupplierName"))
-        //        poisonDataGridView1.Columns["SupplierName"].HeaderText = "تأمین‌کننده";
-        //    if (poisonDataGridView1.Columns.Contains("WarehouseName"))
-        //        poisonDataGridView1.Columns["WarehouseName"].HeaderText = "انبار";
-        //    if (poisonDataGridView1.Columns.Contains("UserName"))
-        //        poisonDataGridView1.Columns["UserName"].HeaderText = "ثبت‌کننده";
-        //    if (poisonDataGridView1.Columns.Contains("Quantity"))
-        //        poisonDataGridView1.Columns["Quantity"].HeaderText = "تعداد";
-        //    if (poisonDataGridView1.Columns.Contains("Unit"))
-        //        poisonDataGridView1.Columns["Unit"].HeaderText = "واحد";
-        //    if (poisonDataGridView1.Columns.Contains("UnitPrice"))
-        //        poisonDataGridView1.Columns["UnitPrice"].HeaderText = "قیمت واحد";
-        //    if (poisonDataGridView1.Columns.Contains("TotalPrice"))
-        //        poisonDataGridView1.Columns["TotalPrice"].HeaderText = "قیمت کل";
-        //    if (poisonDataGridView1.Columns.Contains("InvoiceNumber"))
-        //        poisonDataGridView1.Columns["InvoiceNumber"].HeaderText = "شماره فاکتور";
-        //    if (poisonDataGridView1.Columns.Contains("InvoiceDate"))
-        //        poisonDataGridView1.Columns["InvoiceDate"].HeaderText = "تاریخ فاکتور";
-        //    if (poisonDataGridView1.Columns.Contains("ReceiptDate"))
-        //        poisonDataGridView1.Columns["ReceiptDate"].HeaderText = "تاریخ ورود";
-        //    if (poisonDataGridView1.Columns.Contains("StatusText"))
-        //        poisonDataGridView1.Columns["StatusText"].HeaderText = "وضعیت";     
-        //    if (poisonDataGridView1.Columns.Contains("Description"))
-        //        poisonDataGridView1.Columns["Description"].HeaderText = "توضیحات";
-
-        //    // تنظیم ترتیب نمایش (اختیاری)
-        //    int index = 0;
-        //    if (poisonDataGridView1.Columns.Contains("ProductName"))
-        //        poisonDataGridView1.Columns["ProductName"].DisplayIndex =0;
-        //    if (poisonDataGridView1.Columns.Contains("Description"))
-        //        poisonDataGridView1.Columns["Description"].DisplayIndex = 1;
-        //    if (poisonDataGridView1.Columns.Contains("Quantity"))
-        //        poisonDataGridView1.Columns["Quantity"].DisplayIndex =2;
-        //    if (poisonDataGridView1.Columns.Contains("Unit"))
-        //        poisonDataGridView1.Columns["Unit"].DisplayIndex = 3;
-        //    if (poisonDataGridView1.Columns.Contains("UnitPrice"))
-        //        poisonDataGridView1.Columns["UnitPrice"].DisplayIndex = 4;
-        //    if (poisonDataGridView1.Columns.Contains("WarehouseName"))
-        //        poisonDataGridView1.Columns["WarehouseName"].DisplayIndex = 5;
-        //    if (poisonDataGridView1.Columns.Contains("SupplierName"))
-        //        poisonDataGridView1.Columns["SupplierName"].DisplayIndex = 6;
-
-        //    if (poisonDataGridView1.Columns.Contains("InvoiceNumber"))
-        //        poisonDataGridView1.Columns["InvoiceNumber"].DisplayIndex = 7;
-        //    if (poisonDataGridView1.Columns.Contains("ReceiptDate"))
-        //        poisonDataGridView1.Columns["ReceiptDate"].DisplayIndex =8;
-        //    if (poisonDataGridView1.Columns.Contains("StatusText"))
-        //        poisonDataGridView1.Columns["StatusText"].DisplayIndex =9;
-        //    if (poisonDataGridView1.Columns.Contains("BatchNumber"))
-        //        poisonDataGridView1.Columns["BatchNumber"].DisplayIndex = index++;
-
-        //}
 
         // ========== تنظیمات ظاهری دیتاگرید ==========
         private void CustomizeDataGridView()
@@ -247,21 +183,38 @@ namespace StoreRoom.Forms
             int count = (int)dungeonNumeric1.Value;
             if (count <= 0)
             {
-                MessageBox.Show("تعداد باید بزرگتر از صفر باشد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("تعداد باید بزرگتر از صفر باشد");
                 return;
             }
 
             try
             {
-                await LoadReceiptsAsync(showEmptyMessage: true);
+                // بارگذاری داده
+                var receipts = await _goodsReceiptService.GetTopReceiptsWithDetailsAsync(count);
+                MessageBox.Show($"تعداد رکورد دریافتی: {receipts?.Count() ?? 0}");
+
+                // دیباگ: تعداد و نام خاصیت‌ها
+                MessageBox.Show($"تعداد رکورد: {receipts?.Count() ?? 0}");
+                if (receipts != null && receipts.Any())
+                {
+                    var first = receipts.First();
+                    var props = string.Join(", ", first.GetType().GetProperties().Select(p => p.Name));
+                    MessageBox.Show($"خواص:\n{props}");
+                }
+
+                poisonDataGridView1.DataSource = receipts?.ToList();
+                DgvPersian();
+                CustomizeDataGridView();
+
+                if (receipts == null || !receipts.Any())
+                    MessageBox.Show("هیچ رسیدی یافت نشد.", "اطلاع");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"خطا در بارگذاری داده‌ها: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"خطا: {ex.Message}");
             }
         }
 
-       
 
 
         // ========== رویداد کلیک روی سطر برای نمایش جزئیات (اختیاری) ==========
@@ -301,6 +254,92 @@ namespace StoreRoom.Forms
             catch (Exception ex)
             {
                 MessageBox.Show($"خطا در جستجو: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void poisonDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && poisonDataGridView1.Rows[e.RowIndex].Cells["ReceiptId"].Value != null)
+            {
+                _ReceiptId = (int)poisonDataGridView1.Rows[e.RowIndex].Cells["ReceiptId"].Value;
+            }
+        }
+
+        private async void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            if (_ReceiptId == 0)
+            {
+                MessageBox.Show("لطفاً یک سطر را انتخاب کنید.", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // دریافت نتیجه به صورت Tuple
+                var result = await _goodsReceiptService.ApproveReceiptAsync(_ReceiptId);
+
+                if (result.Success)
+                {
+                    MessageBox.Show(result.Message, "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"خطا در تأیید رسید: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Form21_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (_ReceiptId == 0)
+            {
+                MessageBox.Show("لطفاً ابتدا یک سطر را انتخاب کنید.", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            var editForm = new Form12(_goodsReceiptService, _ReceiptId);
+            if (editForm.ShowDialog() == DialogResult.OK)
+            {
+                await LoadReceiptsAsync(showEmptyMessage: false);
+            }
+
+
+        }
+
+        private async void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (_ReceiptId == 0)
+            {
+                MessageBox.Show("لطفاً ابتدا یک سطر را انتخاب کنید.", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (MessageBox.Show("آیا از حذف این رسید انبار اطمینان دارید؟", "تأیید حذف",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    
+                    await _goodsReceiptService.RemoveByIdAsync(_ReceiptId);
+                    MessageBox.Show("رسید انبار با موفقیت حذف شد.", "موفق", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                  
+                    await LoadReceiptsAsync(showEmptyMessage: false);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"خطا در حذف رسید: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

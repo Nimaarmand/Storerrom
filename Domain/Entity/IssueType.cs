@@ -7,7 +7,9 @@
         InternalUse = 2,
         Donation = 3,
         Scrap = 4,
-        ReturnToSupplier = 5
+        ReturnToSupplier = 5,
+        Transfer = 6,
+        Waste = 7
     }
 }
 

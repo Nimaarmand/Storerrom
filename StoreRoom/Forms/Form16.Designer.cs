@@ -130,6 +130,7 @@
             Name = "Form16";
             Padding = new Padding(3, 64, 4, 4);
             RightToLeft = RightToLeft.Yes;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ثبت دسترسی";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

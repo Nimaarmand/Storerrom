@@ -164,6 +164,7 @@
             Name = "Form14";
             Padding = new Padding(3, 64, 4, 4);
             RightToLeft = RightToLeft.Yes;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ورود";
             Load += Form14_Load;
             ResumeLayout(false);

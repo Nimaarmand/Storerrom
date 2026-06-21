@@ -160,22 +160,23 @@
             // 
             // poisonContextMenuStrip1
             // 
+            poisonContextMenuStrip1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             poisonContextMenuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2 });
             poisonContextMenuStrip1.Name = "poisonContextMenuStrip1";
             poisonContextMenuStrip1.RightToLeft = RightToLeft.Yes;
-            poisonContextMenuStrip1.Size = new Size(111, 48);
+            poisonContextMenuStrip1.Size = new Size(132, 52);
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(110, 22);
+            toolStripMenuItem1.Size = new Size(131, 24);
             toolStripMenuItem1.Text = "ویرایش";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(110, 22);
+            toolStripMenuItem2.Size = new Size(131, 24);
             toolStripMenuItem2.Text = "حذف";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 

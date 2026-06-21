@@ -257,7 +257,9 @@
             Name = "Form2";
             Padding = new Padding(3, 64, 4, 4);
             RightToLeft = RightToLeft.Yes;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ثبت انبار";
+            TopMost = true;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

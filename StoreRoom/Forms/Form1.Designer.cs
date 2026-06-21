@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel2 = new ReaLTaiizor.Controls.Panel();
+            hopeButton17 = new ReaLTaiizor.Controls.HopeButton();
+            hopeButton18 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton16 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton15 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton13 = new ReaLTaiizor.Controls.HopeButton();
@@ -45,12 +47,15 @@
             hopeButton3 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton2 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton1 = new ReaLTaiizor.Controls.HopeButton();
+            panel1 = new Panel();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(39, 51, 63);
+            panel2.Controls.Add(hopeButton17);
+            panel2.Controls.Add(hopeButton18);
             panel2.Controls.Add(hopeButton16);
             panel2.Controls.Add(hopeButton15);
             panel2.Controls.Add(hopeButton13);
@@ -69,13 +74,55 @@
             panel2.Controls.Add(hopeButton1);
             panel2.Dock = DockStyle.Right;
             panel2.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel2.Location = new Point(775, 64);
+            panel2.Location = new Point(801, 64);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(5);
-            panel2.Size = new Size(364, 876);
+            panel2.Size = new Size(364, 931);
             panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             panel2.TabIndex = 1;
             panel2.Text = "panel2";
+            // 
+            // hopeButton17
+            // 
+            hopeButton17.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            hopeButton17.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton17.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton17.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton17.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton17.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            hopeButton17.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton17.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton17.Location = new Point(0, 626);
+            hopeButton17.Name = "hopeButton17";
+            hopeButton17.PrimaryColor = Color.FromArgb(64, 158, 255);
+            hopeButton17.Size = new Size(173, 79);
+            hopeButton17.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton17.TabIndex = 18;
+            hopeButton17.Text = "فاکتور خروج تایید شده";
+            hopeButton17.TextColor = Color.White;
+            hopeButton17.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton17.Click += hopeButton17_Click;
+            // 
+            // hopeButton18
+            // 
+            hopeButton18.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            hopeButton18.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton18.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton18.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton18.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton18.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            hopeButton18.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton18.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton18.Location = new Point(195, 626);
+            hopeButton18.Name = "hopeButton18";
+            hopeButton18.PrimaryColor = Color.FromArgb(64, 158, 255);
+            hopeButton18.Size = new Size(169, 79);
+            hopeButton18.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton18.TabIndex = 17;
+            hopeButton18.Text = "فاکتور وررودی تایید شده";
+            hopeButton18.TextColor = Color.White;
+            hopeButton18.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton18.Click += hopeButton18_Click;
             // 
             // hopeButton16
             // 
@@ -87,7 +134,7 @@
             hopeButton16.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton16.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton16.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton16.Location = new Point(0, 741);
+            hopeButton16.Location = new Point(0, 836);
             hopeButton16.Name = "hopeButton16";
             hopeButton16.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton16.Size = new Size(173, 79);
@@ -108,7 +155,7 @@
             hopeButton15.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton15.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton15.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton15.Location = new Point(195, 741);
+            hopeButton15.Location = new Point(195, 836);
             hopeButton15.Name = "hopeButton15";
             hopeButton15.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton15.Size = new Size(169, 79);
@@ -129,7 +176,7 @@
             hopeButton13.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton13.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton13.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton13.Location = new Point(0, 634);
+            hopeButton13.Location = new Point(0, 730);
             hopeButton13.Name = "hopeButton13";
             hopeButton13.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton13.Size = new Size(173, 79);
@@ -150,7 +197,7 @@
             hopeButton14.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton14.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton14.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton14.Location = new Point(195, 634);
+            hopeButton14.Location = new Point(195, 730);
             hopeButton14.Name = "hopeButton14";
             hopeButton14.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton14.Size = new Size(169, 79);
@@ -171,7 +218,7 @@
             hopeButton11.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton11.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton11.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton11.Location = new Point(0, 529);
+            hopeButton11.Location = new Point(0, 516);
             hopeButton11.Name = "hopeButton11";
             hopeButton11.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton11.Size = new Size(173, 79);
@@ -192,7 +239,7 @@
             hopeButton12.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton12.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton12.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton12.Location = new Point(195, 529);
+            hopeButton12.Location = new Point(195, 516);
             hopeButton12.Name = "hopeButton12";
             hopeButton12.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton12.Size = new Size(169, 79);
@@ -213,7 +260,7 @@
             hopeButton9.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton9.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton9.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton9.Location = new Point(0, 423);
+            hopeButton9.Location = new Point(0, 410);
             hopeButton9.Name = "hopeButton9";
             hopeButton9.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton9.Size = new Size(173, 79);
@@ -234,7 +281,7 @@
             hopeButton10.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton10.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton10.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton10.Location = new Point(195, 423);
+            hopeButton10.Location = new Point(195, 410);
             hopeButton10.Name = "hopeButton10";
             hopeButton10.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton10.Size = new Size(169, 79);
@@ -255,7 +302,7 @@
             hopeButton7.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton7.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton7.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton7.Location = new Point(0, 318);
+            hopeButton7.Location = new Point(0, 305);
             hopeButton7.Name = "hopeButton7";
             hopeButton7.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton7.Size = new Size(173, 79);
@@ -276,7 +323,7 @@
             hopeButton8.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton8.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton8.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton8.Location = new Point(195, 318);
+            hopeButton8.Location = new Point(195, 305);
             hopeButton8.Name = "hopeButton8";
             hopeButton8.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton8.Size = new Size(169, 79);
@@ -297,7 +344,7 @@
             hopeButton6.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton6.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton6.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton6.Location = new Point(0, 216);
+            hopeButton6.Location = new Point(0, 203);
             hopeButton6.Name = "hopeButton6";
             hopeButton6.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton6.Size = new Size(173, 79);
@@ -318,7 +365,7 @@
             hopeButton5.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton5.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton5.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton5.Location = new Point(195, 216);
+            hopeButton5.Location = new Point(195, 203);
             hopeButton5.Name = "hopeButton5";
             hopeButton5.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton5.Size = new Size(169, 79);
@@ -339,7 +386,7 @@
             hopeButton4.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton4.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton4.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton4.Location = new Point(0, 109);
+            hopeButton4.Location = new Point(0, 100);
             hopeButton4.Name = "hopeButton4";
             hopeButton4.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton4.Size = new Size(173, 79);
@@ -360,7 +407,7 @@
             hopeButton3.Font = new Font("Tahoma", 12F, FontStyle.Bold);
             hopeButton3.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton3.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton3.Location = new Point(195, 109);
+            hopeButton3.Location = new Point(195, 100);
             hopeButton3.Name = "hopeButton3";
             hopeButton3.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton3.Size = new Size(169, 79);
@@ -413,11 +460,20 @@
             hopeButton1.WarningColor = Color.FromArgb(230, 162, 60);
             hopeButton1.Click += hopeButton1_Click;
             // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 64);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(798, 931);
+            panel1.TabIndex = 3;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 944);
+            ClientSize = new Size(1169, 999);
+            Controls.Add(panel1);
             Controls.Add(panel2);
             Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
@@ -449,5 +505,8 @@
         private ReaLTaiizor.Controls.HopeButton hopeButton14;
         private ReaLTaiizor.Controls.HopeButton hopeButton15;
         private ReaLTaiizor.Controls.HopeButton hopeButton16;
+        private ReaLTaiizor.Controls.HopeButton hopeButton17;
+        private ReaLTaiizor.Controls.HopeButton hopeButton18;
+        private Panel panel1;
     }
 }

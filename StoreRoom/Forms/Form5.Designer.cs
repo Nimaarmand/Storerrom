@@ -362,6 +362,7 @@
             Margin = new Padding(4);
             Name = "Form5";
             RightToLeft = RightToLeft.Yes;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ثبت کالا";
             Load += Form5_Load;
             panel1.ResumeLayout(false);

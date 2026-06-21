@@ -34,7 +34,7 @@ namespace Domain.Entity
         /// مقدار خروجی (تعداد یا وزن)
         /// </summary>
         [Required]
-        public decimal Quantity { get; set; }
+        public int Quantity { get; set; }
 
         /// <summary>
         /// واحد اندازه‌گیری (مثل عدد، کیلوگرم، متر)
@@ -93,13 +93,12 @@ namespace Domain.Entity
         /// موقعیت قفسه در انبار (در صورت نیاز)
         /// </summary>
         [MaxLength(100)]
-        public string ShelfLocation { get; set; }
+        public string? ShelfLocation { get; set; }
 
         /// <summary>
         /// تاریخ صدور حواله (مقدار پیش‌فرض: امروز)
         /// </summary>
-        [Required]
-        public DateTime IssueDate { get; set; } = DateTime.Today;
+        public DateTime? IssueDate { get; set; } 
 
         /// <summary>
         /// تاریخ ایجاد رکورد در سیستم (مقدار پیش‌فرض: زمان حال)
@@ -111,10 +110,21 @@ namespace Domain.Entity
         /// شناسه کاربری که حواله را ثبت کرده است
         /// </summary>
         public string? UserId { get; set; }
+        /// <summary>
+        /// کاربر تایید کننده حواله خروج
+        /// </summary>
+        public string? ApprovedByUserId { get; set; }
+        /// <summary>
+        /// کاربر ثبت کننده حواله خروج
+        /// </summary>
 
-        // نکته: خصوصیت ناوبری متناظر با UserId در اینجا تعریف نشده است
-        // [ForeignKey("UserId")]
-        // public virtual ApplicationUser User { get; set; }
+         [MaxLength(100)]
+        public string? UserFullName { get; set; }
+        /// <summary>
+        /// کاربر تایید کننده حواله 
+        /// </summary>
+        [MaxLength(100)]
+        public string? ApprovedByFullName { get; set; }
 
         /// <summary>
         /// وضعیت حواله (پیش‌نویس، تایید شده، لغو شده و...) - مقدار پیش‌فرض 0
@@ -126,7 +136,7 @@ namespace Domain.Entity
         /// شماره سری یا شماره دسته کالا
         /// </summary>
         [MaxLength(50)]
-        public string BatchNumber { get; set; }
+        public string? BatchNumber { get; set; }
 
         /// <summary>
         /// توضیحات اضافی درباره حواله

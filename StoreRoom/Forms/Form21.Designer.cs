@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -36,10 +37,15 @@
             dungeonNumeric1 = new ReaLTaiizor.Controls.DungeonNumeric();
             panel1 = new Panel();
             poisonDataGridView1 = new ReaLTaiizor.Controls.PoisonDataGridView();
+            poisonContextMenuStrip1 = new ReaLTaiizor.Controls.PoisonContextMenuStrip(components);
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripMenuItem3 = new ToolStripMenuItem();
             textBoxEdit1 = new ReaLTaiizor.Controls.TextBoxEdit();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
+            poisonContextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -121,6 +127,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             poisonDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            poisonDataGridView1.ContextMenuStrip = poisonContextMenuStrip1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -149,6 +156,36 @@
             poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             poisonDataGridView1.Size = new Size(1106, 356);
             poisonDataGridView1.TabIndex = 7;
+            poisonDataGridView1.CellClick += poisonDataGridView1_CellClick;
+            // 
+            // poisonContextMenuStrip1
+            // 
+            poisonContextMenuStrip1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            poisonContextMenuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3 });
+            poisonContextMenuStrip1.Name = "poisonContextMenuStrip1";
+            poisonContextMenuStrip1.RightToLeft = RightToLeft.Yes;
+            poisonContextMenuStrip1.Size = new Size(168, 76);
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(167, 24);
+            toolStripMenuItem1.Text = "ویرایش";
+            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(167, 24);
+            toolStripMenuItem2.Text = "حذف";
+            toolStripMenuItem2.Click += toolStripMenuItem2_Click;
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(167, 24);
+            toolStripMenuItem3.Text = "تایید وضعیت";
+            toolStripMenuItem3.Click += toolStripMenuItem3_Click;
             // 
             // textBoxEdit1
             // 
@@ -183,9 +220,11 @@
             Padding = new Padding(3, 64, 4, 4);
             RightToLeft = RightToLeft.Yes;
             Text = "لیست ورودی";
+            Load += Form21_Load_1;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).EndInit();
+            poisonContextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -197,5 +236,9 @@
         private Panel panel1;
         private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView1;
         private ReaLTaiizor.Controls.TextBoxEdit textBoxEdit1;
+        private ReaLTaiizor.Controls.PoisonContextMenuStrip poisonContextMenuStrip1;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem toolStripMenuItem3;
     }
 }

@@ -407,6 +407,7 @@
             Name = "Form12";
             Padding = new Padding(3, 64, 4, 4);
             RightToLeft = RightToLeft.Yes;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ثبت ورود کالا";
             Load += Form12_Load;
             panel1.ResumeLayout(false);

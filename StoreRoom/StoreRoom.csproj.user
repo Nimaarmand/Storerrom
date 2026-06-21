@@ -19,9 +19,6 @@
     <Compile Update="Forms\Form14.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Form15.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\Form16.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -46,6 +43,15 @@
     <Compile Update="Forms\Form22.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Form23.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Form24.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Form25.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Form3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Form9.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Form15.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

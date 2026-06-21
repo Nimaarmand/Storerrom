@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Persistans.Context;
+using StoreRoom.Data;
 using StoreRoom.Forms;
 using System;
 using System.IO;
@@ -30,11 +31,15 @@ namespace StoreRoom
         [STAThread]
         static void Main()
         {
+            string connectionString = "Server=.;Database=StoreroomDB;Trusted_Connection=True;TrustServerCertificate=True;";
             ApplicationConfiguration.Initialize();
 
-            var services = new ServiceCollection();
+            // ========== اجرای Seeder (قبل از هر چیزی) ==========
+            var seeder = new IdentityDatabaseSeeder(connectionString);
+            seeder.SeedAllRolesAsync().GetAwaiter().GetResult();
+            seeder.SeedAdminUserAsync().GetAwaiter().GetResult();
 
-            string connectionString = "Server=.;Database=StoreroomDB;Trusted_Connection=True;TrustServerCertificate=True;";
+            var services = new ServiceCollection();
 
             // 1. DbContextها
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -90,7 +95,7 @@ namespace StoreRoom
             services.AddTransient<Form11>();
             services.AddTransient<Form12>();
             services.AddTransient<Form13>();
-            services.AddTransient<Form14>();
+            services.AddTransient<Form14>();  
             services.AddTransient<Form15>();
             services.AddTransient<Form16>();
             services.AddTransient<Form17>();
@@ -99,11 +104,22 @@ namespace StoreRoom
             services.AddTransient<Form20>();
             services.AddTransient<Form21>();
             services.AddTransient<Form22>();
+            services.AddTransient<Form23>();
+            services.AddTransient<Form24>();
+            services.AddTransient<Form25>(); 
+            services.AddTransient<Form15>();
 
             ServiceProvider = services.BuildServiceProvider();
 
-            var mainForm = ServiceProvider.GetRequiredService<Form14>();
-          System.Windows.Forms.  Application.Run(mainForm);
+            // نمایش فرم اسپلش (Modal) و منتظر ماندن برای بسته شدن آن
+            using (var splash = ServiceProvider.GetRequiredService<Form25>())
+            {
+                splash.ShowDialog();
+            }
+
+            // بعد از بسته شدن اسپلش، فرم لاگین را با Application.Run اجرا کن
+            var loginForm = ServiceProvider.GetRequiredService<Form14>();
+           System.Windows.Forms.  Application.Run(loginForm);
         }
     }
 }

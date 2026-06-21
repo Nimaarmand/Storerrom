@@ -10,8 +10,9 @@ namespace Application.Dto
         public string ProductName { get; set; }
         public string WarehouseName { get; set; }
         public string CustomerName { get; set; }      
-        public string UserName { get; set; }
-        public decimal Quantity { get; set; }
+        public string UserName { get; set; } 
+        public string ApprovedByUserName { get; set; }//کسی که حواله را تایید می کند
+        public int Quantity { get; set; }
         public string Unit { get; set; }
         public decimal? UnitSellingPrice { get; set; }
         public decimal TotalPrice => (UnitSellingPrice ?? 0) * Quantity;
@@ -21,5 +22,7 @@ namespace Application.Dto
         public string StatusText { get; set; }          // وضعیت (ثبت، تایید، لغو)
         public string BatchNumber { get; set; }
         public string Description { get; set; }
+        public string TypeText { get; internal set; }
+        public DateTime? CreatedAt { get; internal set; }
     }
 }

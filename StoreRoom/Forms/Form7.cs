@@ -1,9 +1,11 @@
-﻿using Application.Features.Implementation.GoodsIssue_Service;
+﻿using Application.Features.Implementation.Customer_Service;
+using Application.Features.Implementation.GoodsIssue_Service;
 using Application.Features.Implementation.GoodsReceipt_Service;
 using Application.Features.Implementation.Product_Service;
 using Application.Features.Implementation.Supplier_Service;
 using Application.Features.Implementation.Warehouse_Service;
 using Domain.Entity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using ReaLTaiizor.Forms;
 using System;
@@ -201,8 +203,12 @@ namespace StoreRoom.Forms
                 MessageBox.Show("لطفاً ابتدا یک سطر را انتخاب کنید.", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            var GoodsIssueService = Program.ServiceProvider.GetRequiredService<GoodsIssueService>();
-            var createform = new Form15(GoodsIssueService, _productId);
+
+            var goodsIssueService = Program.ServiceProvider.GetRequiredService<GoodsIssueService>();
+            var warehouseService = Program.ServiceProvider.GetRequiredService<WarehouseService>();
+            var customerService = Program.ServiceProvider.GetRequiredService<CustomerService>();
+            var userManager = Program.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            var createform = new Form15(goodsIssueService, warehouseService, customerService, userManager, _productId);
             createform.ShowDialog();
         }
     }
